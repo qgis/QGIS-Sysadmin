@@ -1,1 +1,1 @@
-docker build -t qgis/sphinx:1.0 .
+docker build -t qgis/sphinx:2 .

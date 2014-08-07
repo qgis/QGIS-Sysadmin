@@ -4,7 +4,7 @@
 # and removed after build
 # maybe better to create a qgisdocker transifex user?
 
-cd /var/git/QGIS-Documentation-2.0/
-cp /home/rduivenvoorde/.transifexrc .
-docker run -v /var/git/:/git/doc -w="/git/doc/QGIS-Documentation-2.0" qgis/sphinx:1.0 make $@
+cd /home/richard/dev/qgis/git/QGIS-Documentation-2.2/
+cp /home/richard/.transifexrc .
+docker run -v /home/richard/dev/qgis/git/:/git/doc -w="/git/doc/QGIS-Documentation-2.0" qgis/sphinx:2 make $@
 rm -rf .transifexrc
