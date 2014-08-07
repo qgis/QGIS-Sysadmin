@@ -1,0 +1,13 @@
+# this file is for running docker run using apt-cacher-ng
+# a way to cache a repository locally (very usefull with docker!!)
+#
+# on debian this file is to be put in
+#   /etc/apt/apt.conf.d
+# make sure you update your ip address here
+
+
+#Acquire::http { Proxy "localhost:3142"; };
+Acquire::http { Proxy "http://192.168.0.106:3142"; };
+#Acquire::http { Proxy "http://192.168.0.108:3142"; };
+#Acquire::http { Proxy "http://192.168.2.3:3142"; };
+#Acquire::http { Proxy "http://192.168.1.13:3142"; };
