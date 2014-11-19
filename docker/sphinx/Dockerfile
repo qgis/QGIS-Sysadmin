@@ -4,7 +4,7 @@ MAINTAINER Werner Macho <werner.macho@gmail.com>
 
 # Use local cached debs from host (saves your bandwidth!)
 # Change ip below to that of your apt-cacher-ng host
-# Or comment this line out if you do not with to use caching
+# Or comment this line out if you do not want to use caching
 #ADD 71-apt-cacher-ng /etc/apt/apt.conf.d/71-apt-cacher-ng
 
 RUN apt-get update
