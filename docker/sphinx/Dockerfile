@@ -26,6 +26,10 @@ RUN apt-get -y -q install ko.tex-base ko.tex-extra fonts-nanum fonts-nanum-extra
 # Install Hindi packages
 RUN apt-get -y -q install texlive-lang-indic latex-sanskrit fonts-lohit-deva fonts-deva-extra fonts-nakula fonts-sahadeva fonts-samyak-deva
 
+# Install rpl (Inasafe build scripts)
+RUN apt-get -y -q install rpl
+
+
 
 
 
