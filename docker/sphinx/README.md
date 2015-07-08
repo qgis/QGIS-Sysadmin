@@ -23,11 +23,12 @@ To use:
 - build the image 'qgis/sphinx_html' by running docker-build-html.sh (will take some time)
 - build the image 'qgis/sphinx_pdf' by running docker-build-pdf.sh (will take even more time)
 
-- now start a build by either using a full command line like:
 
- # for example QGIS 2.8 documentation (see README there)
- docker run -v ~/dev/qgis/:/build -w="/build/QGIS-Documentation-2.8" qgis/sphinx_html make html
- # for example Insafe documentation (see README there)
- docker run -t -i -v /home/richard/dev/qgis/git/inasafe-doc:/inasafe-doc -w=/inasafe-doc --rm=true qgis/sphinx_html ./scripts/post_translate.sh en
-    
-- you can also use these images to build the docs on Windows with boot2docker (tested on Win7 and Win8). Most difficult is the path separator on this operating systems. See https://github.com/AIFDR/inasafe-doc#docker-build-on-your-machine for examples
+Now start a build by either using a full command line like:
+
+     # for example QGIS 2.8 documentation (see README there)
+     docker run -v ~/dev/qgis/:/build -w="/build/QGIS-Documentation-2.8" qgis/sphinx_html make html
+     # for example Insafe documentation (see README there)
+     docker run -t -i -v /home/richard/dev/qgis/git/inasafe-doc:/inasafe-doc -w=/inasafe-doc --rm=true qgis/sphinx_html ./scripts/post_translate.sh en
+
+You can also use these images to build the docs on Windows with boot2docker (tested on Win7 and Win8). Most difficult is the path separator on this operating systems. See https://github.com/AIFDR/inasafe-doc#docker-build-on-your-machine for examples
