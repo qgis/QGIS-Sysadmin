@@ -1,39 +1,34 @@
 Sphinx Docker
 =============
 
-We have created a Dockerfile which creates a docker image for you with all stuff 
-in it to build the Website or Documentation.
+We have created a 2 Dockerfile's which create docker images for you with all stuff 
+in it to build the QGIS-Website or Inasafe- and QGIS-Documentation:
+
+*Dockerfile-html* and docker-build-html.sh together build the images qgis/sphinx_html (417MB) and 
+can be used to build html docs and site
+
+*Dockerfile-pdf* and docker-build-pdf.sh together build the images qgis/sphinx_pdf (3.4GB) and 
+can be used to build pdf's of the QGIS and Inasafe documentation
+
+The qgis/sphinx_pdf images is based/on top of the qgis/sphinx_html image.
+
+You can also use this Docker images without building by pulling them from hub.docker: https://hub.docker.com/u/qgis/
 
 You will NOT need a python virtual environment for this, because the full 
-python environment is in the running container.
+python environment is in the running container when you run it.
 
 To use:
 
-- have a look into the Dockerfile, comment the last line if you do NOT want to build pdf's in non western charactersets. For testing it is also easier to comment this line, because it makes your image 1Gb larger...
-- build the image 'qgis/sphinx:1.0' by running docker-build.sh (will take some time)
-- now start a build by either using a full commanline like:
-
-    docker run -v ~/dev/qgis/:/build -w="/build/QGIS-Documentation-2.0" qgis/sphinx make html
-
-- or just run the docker-run.sh 
-
-I had issues with the tx-client on windows, so remove the tx-steps from the Makefile for testing
+- have a look into the Dockerfile(s)
+- build the image 'qgis/sphinx_html' by running docker-build-html.sh (will take some time)
+- build the image 'qgis/sphinx_pdf' by running docker-build-pdf.sh (will take even more time)
 
 
-Scripts:
+Now start a build by either using a full command line like:
 
+     # for example QGIS 2.8 documentation (see README there)
+     docker run -v ~/dev/qgis/:/build -w="/build/QGIS-Documentation-2.8" qgis/sphinx_html make html
+     # for example Insafe documentation (see README there)
+     docker run -t -i -v /home/richard/dev/qgis/git/inasafe-doc:/inasafe-doc -w=/inasafe-doc --rm=true qgis/sphinx_html ./scripts/post_translate.sh en
 
-    docker-build.sh     builds a docker image with all stuff in it to build 
-                        all docks (including all fonts and latex/pdf related stuff)
-
-    docker-run.sh       script to run it
-
-
-Run:
-
-    # clone/checkout a for example QGIS-Documentation in ~/dev/qgis
-    # now from ~/dev/qgis run docker-run.sh
-    # or from command line like: 
-    docker run -v ~/dev/qgis/:/build -w="/build/QGIS-Documentation-2.0" qgis/sphinx make html
-
-
+You can also use these images to build the docs on Windows with boot2docker (tested on Win7 and Win8). Most difficult is the path separator on this operating systems. See https://github.com/AIFDR/inasafe-doc#docker-build-on-your-machine for examples
