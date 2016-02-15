@@ -420,7 +420,7 @@ try:
         issues_url = 'https://api.github.com/repos/%s/issues' % ISSUES_REPO
         for commit in data['commits']:
             msg = commit['message']
-            if '[FEATURE]' in msg:
+            if '[FEATURE]' in msg.upper():
                 # message is both title and description from the commit, separated by \n\n
                 msg = msg.split('\n\n')
                 title = msg[0]
