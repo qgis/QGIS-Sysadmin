@@ -7,7 +7,8 @@ By creating a webhook at github for the commits of qgis/QGIS this
 script will be called, with the commit data as json (sent by github).
 
 Given this data the script will create an issue in the issue tracker
-of qgis/QGIS-Documentation IF the commit message contains [FEATURE].
+of qgis/QGIS-Documentation IF the commit message contains 
+[FEATURE] OR [NEEDS-DOCS] (both case-insensitive).
 
 There is a special github user created for this (see below).
 NOTE: that should have write access to repo because it adds labels too.
@@ -420,12 +421,12 @@ try:
         issues_url = 'https://api.github.com/repos/%s/issues' % ISSUES_REPO
         for commit in data['commits']:
             msg = commit['message']
-            if '[FEATURE]' in msg:
+            if '[FEATURE]' in msg.upper() or '[NEEDS-DOCS]' in msg.upper():
                 # message is both title and description from the commit, separated by \n\n
                 msg = msg.split('\n\n')
                 title = msg[0]
                 committer = commit['committer']['username']
-                desc = 'Unfortunately this lazy coder did not write a description... :-('
+                desc = 'Unfortunately this naughty coder did not write a description... :-('
                 if len(msg)>1:
                     desc = '\n\n'.join(msg[1:])
                 body = 'Original commit: %s by %s\n\n%s' % (commit['url'], committer, desc)
