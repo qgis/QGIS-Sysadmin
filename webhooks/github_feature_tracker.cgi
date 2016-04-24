@@ -26,6 +26,11 @@ USERNAME = 'qgis-feature-tracker'
 # password can be found in qgis.kdb (via PSC members)
 PASSWORD = '*******'
 
+# to get the right number for the milestones:
+# https://api.github.com/repos/qgis/QGIS-Documentation/milestones
+# QGIS 2.14 = 5
+# QGIS 2.16 = 6
+
 def log(msg):
     with open('/tmp/githubhook.log', 'a') as f:
         f.write(unicode(msg) + '\n')
@@ -433,6 +438,7 @@ try:
                 issue_payload = {
                     'title': title,
                     'body': body,
+                    'milestone': 6,
                     'labels': ['Automatic new feature']
                 }
                 issue_payload = json.dumps(issue_payload)
