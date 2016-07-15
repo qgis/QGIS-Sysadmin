@@ -30,6 +30,7 @@ PASSWORD = '*******'
 # https://api.github.com/repos/qgis/QGIS-Documentation/milestones
 # QGIS 2.14 = 5
 # QGIS 2.16 = 6
+# QGIS 3.0 = 7
 
 def log(msg):
     with open('/tmp/githubhook.log', 'a') as f:
@@ -438,7 +439,7 @@ try:
                 issue_payload = {
                     'title': title,
                     'body': body,
-                    'milestone': 6,
+                    'milestone': 7,
                     'labels': ['Automatic new feature']
                 }
                 issue_payload = json.dumps(issue_payload)
