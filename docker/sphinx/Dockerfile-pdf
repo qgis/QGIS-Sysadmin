@@ -1,4 +1,4 @@
-FROM qgis/sphinx_html
+FROM qgis/sphinx_html_3
 
 MAINTAINER Richard Duivenvoorde <richard@duif.net>
 
@@ -12,13 +12,13 @@ MAINTAINER Richard Duivenvoorde <richard@duif.net>
 # for japanese pdf you need: 'cmap-adobe-japan1 cmap-adobe-japan2 latex-cjk-all nkf okumura-clsfiles ptex-base ptex-bin texlive-fonts-extra'
 RUN apt-get update
 RUN apt-get -y -q install texlive-fonts-recommended texinfo texlive-lang-cyrillic 
-RUN apt-get -y -q install cmap-adobe-japan1 cmap-adobe-japan2 latex-cjk-all nkf okumura-clsfiles ptex-bin texlive-fonts-extra
+RUN apt-get -y -q install cmap-adobe-japan1 cmap-adobe-japan2 latex-cjk-all nkf okumura-clsfiles texlive-binaries texlive-fonts-extra
 
 # Install Korean packages
 RUN apt-get -y -q install ko.tex-base ko.tex-extra fonts-nanum fonts-nanum-extra fonts-nanum-coding fonts-nanum-eco fonts-nanum-extra fonts-unfonts-core
 
 # Install Hindi packages
-RUN apt-get -y -q install texlive-lang-indic latex-sanskrit fonts-lohit-deva fonts-deva-extra fonts-nakula fonts-sahadeva fonts-samyak-deva
+RUN apt-get -y -q install texlive-lang-indic fonts-lohit-deva fonts-deva-extra fonts-nakula fonts-sahadeva fonts-samyak-deva
 
 
 
