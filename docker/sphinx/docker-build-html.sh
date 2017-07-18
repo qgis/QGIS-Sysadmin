@@ -1,1 +1,1 @@
-docker build -f Dockerfile-html -t qgis/sphinx_html:latest .
+docker build -f Dockerfile-html -t qgis/sphinx_html_3:latest .
