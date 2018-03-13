@@ -11,3 +11,4 @@ RUN apt-get update
 RUN apt-get install -y python3 python3-pip curl apt-utils gettext rpl
 RUN curl -o /REQUIREMENTS.txt https://raw.githubusercontent.com/qgis/QGIS-Website/master/REQUIREMENTS.txt
 RUN pip3 install -r /REQUIREMENTS.txt
+RUN apt-get install -y rsync
