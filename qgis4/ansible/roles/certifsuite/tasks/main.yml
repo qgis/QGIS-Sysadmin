@@ -1,0 +1,21 @@
+- name: Install prerequisites
+  apt:
+    name: "{{item}}"
+    update_cache: yes
+  with_items:
+    - xmlstarlet
+
+- name: Clone QGIS-Server-CertifSuite
+  git:
+    repo: https://github.com/oslandia/QGIS-Server-CertifSuite
+    dest: "/home/{{ user }}/{{ prefix }}/QGIS-Server-CertifSuite"
+  become_user: "{{ user }}"
+
+- name: Update crontab to periodically run ogc tests
+  cron:
+    name: certifsuite ci {{ prefix }}
+    user: "{{ user }}"
+    minute: "0"
+    hour: "5"
+    job: >
+      cd /home/{{ user }}/{{ prefix }}/QGIS-Server-CertifSuite/ansible/roles/ci/files && sh ci.sh > /tmp/certifsuite-ci.log 2>&1

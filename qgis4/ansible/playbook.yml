@@ -5,3 +5,4 @@
     - vars.yml
   roles:
     - base
+    - certifsuite

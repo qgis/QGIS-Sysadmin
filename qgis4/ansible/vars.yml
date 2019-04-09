@@ -1,2 +1,4 @@
 locale: "en_US.UTF-8"
 timezone: "Etc/UTC"
+
+prefix: "test"
