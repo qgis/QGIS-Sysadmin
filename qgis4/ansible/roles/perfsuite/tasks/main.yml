@@ -15,9 +15,9 @@
 
 - name: Update crontab to periodically run performance tests
   cron:
-    name: perfsuite ci {{ prefix }}
+    name: perfsuite ci
     user: "{{ user }}"
     minute: "0"
-    hour: "1"
+    hour: "{{ perfsuite_hour }}"
     job: >
       cd /home/{{ user }}/{{ prefix }}/QGIS-Server-PerfSuite/ansible/roles/ci/files && sh ci.sh > /tmp/perfsuite-ci.log 2>&1

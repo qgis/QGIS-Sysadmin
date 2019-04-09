@@ -13,18 +13,18 @@
 
 - name: Update crontab to periodically run ogc tests
   cron:
-    name: certifsuite ci {{ prefix }}
+    name: certifsuite ci
     user: "{{ user }}"
     minute: "0"
-    hour: "5"
+    hour: "{{ certifsuite_hour }}"
     job: >
       cd /home/{{ user }}/{{ prefix }}/QGIS-Server-CertifSuite/ansible/roles/ci/files && sh ci.sh > /tmp/certifsuite-ci.log 2>&1
 
 - name: Update crontab to periodically run online instances for certification process
   cron:
-    name: certifsuite online {{ prefix }}
+    name: certifsuite online
     user: "{{ user }}"
     minute: "0"
-    hour: "6"
+    hour: "{{ certifsuite_online_hour }}"
     job: >
       cd /home/{{ user }}/{{ prefix }}/QGIS-Server-CertifSuite/online/ && sh ci.sh > /tmp/certifsuite-online.log 2>&1

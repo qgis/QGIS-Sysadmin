@@ -9,9 +9,9 @@
 
 - name: Update crontab to periodically build qwc2-demo-apps and deploy it
   cron:
-    name: qwc2 demo {{ prefix }}
+    name: qwc2 demo
     user: "{{ user }}"
     minute: "0"
-    hour: "7"
+    hour: "{{ qwc2_hour }}"
     job: >
       cd /home/{{ user }}/{{ prefix }}/demos/qwc2/ && sh ci.sh > /tmp/demos-qwc2-ci.log 2>&1

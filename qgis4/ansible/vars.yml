@@ -1,4 +1,10 @@
 locale: "en_US.UTF-8"
 timezone: "Etc/UTC"
 
-prefix: "test"
+clean_hour: "0"
+perfsuite_hour: "1"
+certifsuite_hour: "5"
+certifsuite_online_hour: "6"
+qwc2_hour: "5"
+
+prefix: "services"
