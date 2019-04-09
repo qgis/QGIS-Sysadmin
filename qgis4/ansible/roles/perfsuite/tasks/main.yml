@@ -21,3 +21,26 @@
     hour: "{{ perfsuite_hour }}"
     job: >
       cd /home/{{ user }}/{{ prefix }}/QGIS-Server-PerfSuite/ansible/roles/ci/files && sh ci.sh > /tmp/perfsuite-ci.log 2>&1
+
+- name: Update crontab to periodically run online instances
+  cron:
+    name: perfsuite online
+    user: "{{ user }}"
+    minute: "0"
+    hour: "{{ perfsuite_online_hour }}"
+    job: >
+      cd /home/{{ user }}/{{ prefix }}/QGIS-Server-PerfSuite/online/ && sh ci.sh > /tmp/perfsuite-online.log 2>&1
+
+- name: Copy nginx configuration file
+  template:
+    dest: /etc/nginx/sites-available/perfsuite
+    src: perfsuite
+
+- name: Activate perfsuite site
+  file: src=/etc/nginx/sites-available/perfsuite
+        dest=/etc/nginx/sites-enabled/perfsuite
+        state=link
+
+- name: Restart nginx
+  service: name=nginx
+           state=restarted

@@ -4,13 +4,16 @@ timezone: "Etc/UTC"
 server_ip: "138.201.120.72"
 
 clean_hour: "0"
+
 perfsuite_hour: "1"
+perfsuite_online_hour: "6"
+perfsuite_port: "8082"
 
 certifsuite_hour: "5"
 certifsuite_online_hour: "6"
 certifsuite_port: "8080"
 
-demos_hour: "5"
+demos_hour: "6"
 demos_port: "8081"
 
 prefix: "services"
