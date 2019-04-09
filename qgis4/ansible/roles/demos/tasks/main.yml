@@ -1,0 +1,17 @@
+- name: Copy testsuite scripts
+  copy:
+    dest: "/home/{{ user }}/{{ prefix }}/demos/"
+    src: "{{ playbook_dir }}/../demos/{{ item }}"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+  with_items:
+    - qwc2
+
+- name: Update crontab to periodically build qwc2-demo-apps and deploy it
+  cron:
+    name: qwc2 demo {{ prefix }}
+    user: "{{ user }}"
+    minute: "0"
+    hour: "7"
+    job: >
+      cd /home/{{ user }}/{{ prefix }}/demos/qwc2/ && sh ci.sh > /tmp/demos-qwc2-ci.log 2>&1
