@@ -17,6 +17,7 @@ WORKDIR /root
 RUN git clone --recursive https://github.com/qgis/qwc2-demo-app.git
 
 WORKDIR /root/qwc2-demo-app
+COPY config.json config.json
 RUN yarn install
 RUN yarn run prod
 RUN tar zcvf prod.tar.gz prod

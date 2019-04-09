@@ -21,3 +21,8 @@ $ source venv/bin/activate
 (venv)$ pip install -r requirements.txt
 (venv)$ sh qgis4.sh
 ```
+
+## URLs
+
+Links:
+- [QWC2 demos](http://qgis4.qgis.org:8080/demos_qwc2/)

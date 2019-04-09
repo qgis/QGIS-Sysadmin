@@ -1,4 +1,4 @@
-- name: Copy testsuite scripts
+- name: Copy demos scripts
   copy:
     dest: "/home/{{ user }}/{{ prefix }}/demos/"
     src: "{{ playbook_dir }}/../demos/{{ item }}"
