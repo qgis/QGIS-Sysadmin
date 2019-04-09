@@ -1,0 +1,23 @@
+- name: Install prerequisites
+  apt:
+    name: "{{item}}"
+    update_cache: yes
+  with_items:
+    - postgresql-client
+    - curl
+    - virtualenv
+
+- name: Clone QGIS-Server-PerfSuite
+  git:
+    repo: https://github.com/oslandia/QGIS-Server-PerfSuite
+    dest: "/home/{{ user }}/{{ prefix }}/QGIS-Server-PerfSuite"
+  become_user: "{{ user }}"
+
+- name: Update crontab to periodically run performance tests
+  cron:
+    name: perfsuite ci {{ prefix }}
+    user: "{{ user }}"
+    minute: "0"
+    hour: "1"
+    job: >
+      cd /home/{{ user }}/{{ prefix }}/QGIS-Server-PerfSuite/ansible/roles/ci/files && sh ci.sh > /tmp/perfsuite-ci.log 2>&1
