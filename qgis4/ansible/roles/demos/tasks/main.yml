@@ -12,6 +12,20 @@
     name: qwc2 demo
     user: "{{ user }}"
     minute: "0"
-    hour: "{{ qwc2_hour }}"
+    hour: "{{ demos_hour }}"
     job: >
       cd /home/{{ user }}/{{ prefix }}/demos/qwc2/ && sh ci.sh > /tmp/demos-qwc2-ci.log 2>&1
+
+- name: Copy nginx configuration file
+  template:
+    dest: /etc/nginx/sites-available/demos
+    src: demos
+
+- name: Activate demos site
+  file: src=/etc/nginx/sites-available/demos
+        dest=/etc/nginx/sites-enabled/demos
+        state=link
+
+- name: Restart nginx
+  service: name=nginx
+           state=restarted

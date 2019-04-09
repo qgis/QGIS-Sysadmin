@@ -25,4 +25,4 @@ $ source venv/bin/activate
 ## URLs
 
 Links:
-- [QWC2 demos](http://qgis4.qgis.org:8080/demos_qwc2/)
+- [QWC2 demos](http://qgis4.qgis.org:8081/demos_qwc2/)
