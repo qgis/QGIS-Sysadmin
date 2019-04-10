@@ -1,0 +1,26 @@
+server {
+	listen {{ dashboard_port }};
+	listen [::]:{{ dashboard_port }};
+
+	root /var/www/html;
+
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+	location /dashboard {
+		proxy_pass http://172.20.3.2:3030/;
+	}
+
+	location /events {
+		proxy_pass http://172.20.3.2:3030/;
+        }
+
+	location /views {
+		proxy_pass http://172.20.3.2:3030/views;
+        }
+}

@@ -3,6 +3,8 @@ timezone: "Etc/UTC"
 
 server_ip: "138.201.120.72"
 
+dashboard_port: 8083
+
 clean_hour: "0"
 
 perfsuite_hour: "1"

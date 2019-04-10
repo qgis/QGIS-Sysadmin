@@ -1,0 +1,15 @@
+version: '2'
+services:
+  dashboard:
+    container_name: dashboard
+    image: dashboard
+    networks:
+      vpcbr:
+        ipv4_address: 172.20.2.2
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.2.0/16
+          gateway: 172.20.2.1
