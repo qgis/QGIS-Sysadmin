@@ -11,6 +11,11 @@
     dest: "/home/{{ user }}/{{ prefix }}/QGIS-Server-CertifSuite"
   become_user: "{{ user }}"
 
+- name: Symbol link for ci script
+  file: src=/home/{{ user }}/{{ prefix }}/QGIS-Server-CertifSuite/ansible/roles/ci/files/ci.sh
+        dest=/home/{{ user }}/{{ prefix }}/QGIS-Server-CertifSuite/ci.sh
+        state=link
+
 - name: Update crontab to periodically run ogc tests
   cron:
     name: certifsuite ci
@@ -18,7 +23,7 @@
     minute: "0"
     hour: "{{ certifsuite_hour }}"
     job: >
-      cd /home/{{ user }}/{{ prefix }}/QGIS-Server-CertifSuite/ansible/roles/ci/files && sh ci.sh > /tmp/certifsuite-ci.log 2>&1
+      cd /home/{{ user }}/{{ prefix }}/QGIS-Server-CertifSuite/ && sh ci.sh > /tmp/certifsuite-ci.log 2>&1
 
 - name: Update crontab to periodically run online instances for certification process
   cron:

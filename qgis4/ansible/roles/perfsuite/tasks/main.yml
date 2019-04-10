@@ -13,6 +13,11 @@
     dest: "/home/{{ user }}/{{ prefix }}/QGIS-Server-PerfSuite"
   become_user: "{{ user }}"
 
+- name: Symbol link for ci script
+  file: src=/home/{{ user }}/{{ prefix }}/QGIS-Server-PerfSuite/ansible/roles/ci/files/ci.sh
+        dest=/home/{{ user }}/{{ prefix }}/QGIS-Server-PerfSuite/ci.sh
+        state=link
+
 - name: Update crontab to periodically run performance tests
   cron:
     name: perfsuite ci
@@ -20,7 +25,7 @@
     minute: "0"
     hour: "{{ perfsuite_hour }}"
     job: >
-      cd /home/{{ user }}/{{ prefix }}/QGIS-Server-PerfSuite/ansible/roles/ci/files && sh ci.sh > /tmp/perfsuite-ci.log 2>&1
+      cd /home/{{ user }}/{{ prefix }}/QGIS-Server-PerfSuite/ && sh ci.sh > /tmp/perfsuite-ci.log 2>&1
 
 - name: Update crontab to periodically run online instances
   cron:
