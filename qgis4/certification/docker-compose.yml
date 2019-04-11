@@ -1,0 +1,33 @@
+version: '2'
+services:
+  qgis-master-teamengine:
+    container_name: qgisserver-certifsuite-online-master
+    image: qgisserver-certifsuite/master
+    environment:
+      - QGIS_PROJECT_FILE=/data/teamengine_wms_130.qgs
+    networks:
+      vpcbr:
+        ipv4_address: 172.20.0.4
+    volumes:
+      - ./data:/data
+    depends_on:
+      - data
+  qgis-3-4-teamengine:
+    container_name: qgisserver-certisuite-online-3-4
+    image: qgisserver-certifsuite/3.4
+    environment:
+      - QGIS_PROJECT_FILE=/data/teamengine_wms_130.qgs
+    networks:
+      vpcbr:
+        ipv4_address: 172.20.0.5
+    volumes:
+      - ./data:/data
+    depends_on:
+      - data
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+          gateway: 172.20.0.1

@@ -12,8 +12,9 @@ perfsuite_online_hour: "6"
 perfsuite_port: "8082"
 
 certifsuite_hour: "5"
-certifsuite_online_hour: "6"
 certifsuite_port: "8080"
+
+certification_hour: "6"
 
 demos_hour: "6"
 demos_port: "8081"

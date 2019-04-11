@@ -11,10 +11,19 @@
     dest: "/home/{{ user }}/{{ prefix }}/QGIS-Server-CertifSuite"
   become_user: "{{ user }}"
 
-- name: Symbol link for ci script
-  file: src=/home/{{ user }}/{{ prefix }}/QGIS-Server-CertifSuite/ansible/roles/ci/files/ci.sh
-        dest=/home/{{ user }}/{{ prefix }}/QGIS-Server-CertifSuite/ci.sh
-        state=link
+- name: Copy ci script
+  copy:
+    dest: "/home/{{ user }}/{{ prefix }}/certifsuite-ci.sh"
+    src: "certifsuite-ci.sh"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+
+- name: Copy certification scripts
+  copy:
+    dest: "/home/{{ user }}/{{ prefix }}/certification/"
+    src: "{{ playbook_dir }}/../certification/"
+    owner: "{{ user }}"
+    group: "{{ group }}"
 
 - name: Update crontab to periodically run ogc tests
   cron:
@@ -23,16 +32,16 @@
     minute: "0"
     hour: "{{ certifsuite_hour }}"
     job: >
-      cd /home/{{ user }}/{{ prefix }}/QGIS-Server-CertifSuite/ && sh ci.sh > /tmp/certifsuite-ci.log 2>&1
+      cd /home/{{ user }}/{{ prefix }}/ && sh certifsuite-ci.sh > /tmp/certifsuite-ci.log 2>&1
 
 - name: Update crontab to periodically run online instances for certification process
   cron:
-    name: certifsuite online
+    name: certification
     user: "{{ user }}"
     minute: "0"
-    hour: "{{ certifsuite_online_hour }}"
+    hour: "{{ certification_hour }}"
     job: >
-      cd /home/{{ user }}/{{ prefix }}/QGIS-Server-CertifSuite/online/ && sh ci.sh > /tmp/certifsuite-online.log 2>&1
+      cd /home/{{ user }}/{{ prefix }}/certification/ && sh certification.sh > /tmp/certification.log 2>&1
 
 - name: Copy nginx configuration file
   template:
