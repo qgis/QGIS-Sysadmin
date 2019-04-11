@@ -1,0 +1,29 @@
+- name: Copy demos scripts
+  copy:
+    dest: "/home/{{ user }}/{{ prefix }}/online/"
+    src: "{{ playbook_dir }}/../online/qwc2"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+
+- name: Update crontab to periodically build qwc2-demo-apps and deploy it with an instance of QGIS Server
+  cron:
+    name: qwc2 demo
+    user: "{{ user }}"
+    minute: "0"
+    hour: "{{ qwc2_hour }}"
+    job: >
+      cd /home/{{ user }}/{{ prefix }}/online/qwc2/ && sh ci.sh > /tmp/demos-qwc2-ci.log 2>&1
+
+- name: Copy nginx configuration file
+  template:
+    dest: /etc/nginx/sites-available/qwc2
+    src: demos
+
+- name: Activate demos site
+  file: src=/etc/nginx/sites-available/qwc2
+        dest=/etc/nginx/sites-enabled/qwc2
+        state=link
+
+- name: Restart nginx
+  service: name=nginx
+           state=restarted

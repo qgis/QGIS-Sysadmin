@@ -1,0 +1,26 @@
+version: '2'
+services:
+  qgis-master:
+    container_name: qgisserver-perfsuite-online-master
+    image: qgisserver-perfsuite/master
+    networks:
+      vpcbr:
+        ipv4_address: 172.20.1.5
+    volumes:
+      - ./data:/data
+    environment:
+      - QGIS_PROJECT_FILE=/data/qgis3.qgs
+  data:
+    container_name: qgisserver-perfsuite-online-data
+    image: qgisserver-perfsuite/data
+    networks:
+      vpcbr:
+        ipv4_address: 172.20.1.6
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.1.0/16
+          gateway: 172.20.1.1

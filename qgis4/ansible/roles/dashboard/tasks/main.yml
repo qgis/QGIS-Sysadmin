@@ -1,7 +1,7 @@
 - name: Copy dashboard scripts
   copy:
-    dest: "/home/{{ user }}/{{ prefix }}/"
-    src: "{{ playbook_dir }}/../dashboard"
+    dest: "/home/{{ user }}/{{ prefix }}/online/"
+    src: "{{ playbook_dir }}/../online/dashboard"
     owner: "{{ user }}"
     group: "{{ group }}"
 

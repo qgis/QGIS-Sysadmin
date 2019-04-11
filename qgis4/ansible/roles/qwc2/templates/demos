@@ -1,6 +1,6 @@
 server {
-	listen {{ demos_port }};
-	listen [::]:{{ demos_port }};
+	listen {{ qwc2_port }};
+	listen [::]:{{ qwc2_port }};
 
 	root /var/www/html;
 
@@ -12,7 +12,7 @@ server {
 		try_files $uri $uri/ =404;
 	}
 
-	location /demos_qwc2 {
-		root /home/{{ user }}/{{ prefix }}/demos/qwc2/;
+	location /qwc2 {
+		root /home/{{ user }}/{{ prefix }}/online/qwc2/;
         }
 }
