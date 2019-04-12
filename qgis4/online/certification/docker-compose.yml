@@ -10,8 +10,6 @@ services:
         ipv4_address: 172.20.0.4
     volumes:
       - ./data:/data
-    depends_on:
-      - data
   qgis-3-4-teamengine:
     container_name: qgisserver-certisuite-online-3-4
     image: qgisserver-certifsuite/3.4
@@ -22,8 +20,6 @@ services:
         ipv4_address: 172.20.0.5
     volumes:
       - ./data:/data
-    depends_on:
-      - data
 networks:
   vpcbr:
     driver: bridge

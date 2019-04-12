@@ -12,7 +12,7 @@ server {
 		try_files $uri $uri/ =404;
 	}
 
-	location /qwc2 {
+	location /demos_qwc2 {
 		root /home/{{ user }}/{{ prefix }}/online/qwc2/;
         }
 }

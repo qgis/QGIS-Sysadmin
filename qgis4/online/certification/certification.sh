@@ -18,4 +18,5 @@ cd ../../QGIS-Server-CertifSuite/docker/3.4 && sh build.sh && cd -
 # stop and restart
 docker-compose down
 docker-compose rm -f
+docker network prune -f
 docker-compose up -d
