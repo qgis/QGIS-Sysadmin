@@ -11,10 +11,10 @@ docker rmi qgisserver-perfsuite/master
 
 echo "Build new docker images"
 echo "-----------------------"
-cd docker/2.18 && sh build.sh && cd -
-cd docker/3.4 && sh build.sh && cd -
-cd docker/3.6 && sh build.sh && cd -
-cd docker/master && sh build.sh && cd -
+cd QGIS-Server-PerfSuite/docker/2.18 && sh build.sh && cd -
+cd QGIS-Server-PerfSuite/docker/3.4 && sh build.sh && cd -
+cd QGIS-Server-PerfSuite/docker/3.6 && sh build.sh && cd -
+cd QGIS-Server-PerfSuite/docker/master && sh build.sh && cd -
 
 echo "Run graffiti"
 echo "------------"

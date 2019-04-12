@@ -9,7 +9,7 @@ docker rmi qgisserver-certifsuite/master
 
 echo "Build new docker image for master"
 echo "---------------------------------"
-cd docker/master && sh build.sh && cd -
+cd QGIS-Server-CertifSuite/docker/master && sh build.sh && cd -
 
 echo "Run OGC tests for WMS 1.3.0"
 echo "---------------------------"
