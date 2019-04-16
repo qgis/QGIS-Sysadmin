@@ -25,7 +25,7 @@ $ source venv/bin/activate
 ## URLs
 
 Links:
-- [QGIS Server 3.4 for OGC certification](http://qgis4.qgis.org:8080/certification_qgisserver_3_4)
-- [QGIS Server Master for OGC certification](http://qgis4.qgis.org:8080/certification_qgisserver_master)
+- [QGIS Server 3.4 for OGC certification](http://qgis4.qgis.org:8080/certification_qgisserver_3_4?SERVICE=WMS&REQUEST=GetCapabilities)
+- [QGIS Server Master for OGC certification](http://qgis4.qgis.org:8080/certification_qgisserver_master?SERVICE=WMS&REQUEST=GetCapabilities)
 - [QGIS Server Master with performance dataset](http://qgis4.qgis.org:8082/qgisserver_master_perfsuite/)
 - [QWC2 demos](http://qgis4.qgis.org:8081/demos_qwc2/)
