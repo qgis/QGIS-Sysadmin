@@ -12,7 +12,7 @@
     minute: "0"
     hour: "{{ qwc2_hour }}"
     job: >
-      cd /home/{{ user }}/{{ prefix }}/online/qwc2/ && sh ci.sh > /tmp/demos-qwc2-ci.log 2>&1
+      cd /home/{{ user }}/{{ prefix }}/online/qwc2/ && sh qwc2.sh > /tmp/demos-qwc2-ci.log 2>&1
 
 - name: Copy nginx configuration file
   template:

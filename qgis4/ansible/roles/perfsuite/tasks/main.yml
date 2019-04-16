@@ -28,17 +28,3 @@
     hour: "{{ perfsuite_hour }}"
     job: >
       cd /home/{{ user }}/{{ prefix }} && sh perfsuite-ci.sh > /tmp/perfsuite-ci.log 2>&1
-
-- name: Copy nginx configuration file
-  template:
-    dest: /etc/nginx/sites-available/perfsuite
-    src: perfsuite
-
-- name: Activate perfsuite site
-  file: src=/etc/nginx/sites-available/perfsuite
-        dest=/etc/nginx/sites-enabled/perfsuite
-        state=link
-
-- name: Restart nginx
-  service: name=nginx
-           state=restarted
