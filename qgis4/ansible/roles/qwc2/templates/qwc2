@@ -12,7 +12,7 @@ server {
 		try_files $uri $uri/ =404;
 	}
 
-	location /qwc2_qgisserver {
+	location /qgisserver_demo {
 		fastcgi_pass 172.21.0.10:5555;
 		add_header Access-Control-Allow-Origin *;
 		add_header 'Access-Control-Allow-Headers' 'Authorization,Content-Type,8Accept,Origin,X-Requested-With';
@@ -28,7 +28,7 @@ server {
 		fastcgi_param   SERVER_NAME $server_addr;
 	}
 
-	location /demos_qwc2 {
+	location /qwc2_demo {
 		root /home/{{ user }}/{{ prefix }}/online/qwc2/;
         }
 }
