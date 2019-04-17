@@ -5,7 +5,7 @@
     owner: "{{ user }}"
     group: "{{ group }}"
 
-- name: Update crontab to periodically build qwc2-demo-apps and deploy it with an instance of QGIS Server
+- name: Update crontab to periodically build qwc2-demo-app and deploy it with an instance of QGIS Server
   cron:
     name: qwc2 demo
     user: "{{ user }}"
@@ -20,10 +20,12 @@
     src: qwc2
 
 - name: Activate demos site
-  file: src=/etc/nginx/sites-available/qwc2
-        dest=/etc/nginx/sites-enabled/qwc2
-        state=link
+  file:
+    src: /etc/nginx/sites-available/qwc2
+    dest: /etc/nginx/sites-enabled/qwc2
+    state: link
 
 - name: Restart nginx
-  service: name=nginx
-           state=restarted
+  service:
+    name: nginx
+    state: restarted

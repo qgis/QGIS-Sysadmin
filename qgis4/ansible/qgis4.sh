@@ -1,6 +1,6 @@
 #! /bin/bash
 
-USER=pblottiere
+USER=$1
 
 # ssh config with private key
 eval `ssh-agent`

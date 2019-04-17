@@ -20,10 +20,12 @@
     src: certification
 
 - name: Activate certification site
-  file: src=/etc/nginx/sites-available/certification
-        dest=/etc/nginx/sites-enabled/certification
-        state=link
+  file:
+    src: /etc/nginx/sites-available/certification
+    dest: /etc/nginx/sites-enabled/certification
+    state: link
 
 - name: Restart nginx
-  service: name=nginx
-           state=restarted
+  service:
+    name: nginx
+    state: restarted
