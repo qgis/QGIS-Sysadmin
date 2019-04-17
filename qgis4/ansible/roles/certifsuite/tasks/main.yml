@@ -1,9 +1,7 @@
 - name: Install prerequisites
   apt:
-    name: "{{item}}"
+    name: ['xmlstarlet']
     update_cache: yes
-  with_items:
-    - xmlstarlet
 
 - name: Clone QGIS-Server-CertifSuite
   git:

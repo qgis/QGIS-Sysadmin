@@ -1,11 +1,7 @@
 - name: Install prerequisites
   apt:
-    name: "{{item}}"
+    name: ['postgresql-client', 'curl', 'virtualenv']
     update_cache: yes
-  with_items:
-    - postgresql-client
-    - curl
-    - virtualenv
 
 - name: Clone QGIS-Server-PerfSuite
   git:

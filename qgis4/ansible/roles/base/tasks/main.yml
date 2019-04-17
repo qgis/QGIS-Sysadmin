@@ -1,11 +1,7 @@
 - name: Install prerequisites
   apt:
-    name: "{{item}}"
+    name: ['git', 'apt-transport-https', 'dirmngr']
     update_cache: yes
-  with_items:
-    - git
-    - apt-transport-https
-    - dirmngr
 
 - name: Add Docker GPG key
   apt_key:
@@ -17,10 +13,7 @@
 
 - name: Install Docker
   apt:
-    name: "{{ item }}"
-  with_items:
-    - docker-ce
-    - docker-compose
+    name: ['docker-ce', 'docker-compose']
 
 - name: Adding user '{{ user }}' to group docker
   user:
