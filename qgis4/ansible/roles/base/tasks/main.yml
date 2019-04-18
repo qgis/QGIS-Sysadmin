@@ -1,0 +1,22 @@
+- name: Install prerequisites
+  apt:
+    name: ['git', 'apt-transport-https', 'dirmngr']
+    update_cache: yes
+
+- name: Add Docker GPG key
+  apt_key:
+    url: https://download.docker.com/linux/debian/gpg
+
+- name: Add Docker APT repository
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/debian {{ansible_distribution_release}} stable
+
+- name: Install Docker
+  apt:
+    name: ['docker-ce', 'docker-compose']
+
+- name: Adding user '{{ user }}' to group docker
+  user:
+    name: '{{ user }}'
+    groups: docker
+    append: yes

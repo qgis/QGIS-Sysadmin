@@ -1,0 +1,26 @@
+- name: Install prerequisites
+  apt:
+    name: ['xmlstarlet']
+    update_cache: yes
+
+- name: Clone QGIS-Server-CertifSuite
+  git:
+    repo: https://github.com/oslandia/QGIS-Server-CertifSuite
+    dest: "/home/{{ user }}/{{ prefix }}/QGIS-Server-CertifSuite"
+  become_user: "{{ user }}"
+
+- name: Copy ci script
+  copy:
+    dest: "/home/{{ user }}/{{ prefix }}/certifsuite-ci.sh"
+    src: "certifsuite-ci.sh"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+
+- name: Update crontab to periodically run ogc tests
+  cron:
+    name: certifsuite ci
+    user: "{{ user }}"
+    minute: "0"
+    hour: "{{ certifsuite_hour }}"
+    job: >
+      cd /home/{{ user }}/{{ prefix }}/ && sh certifsuite-ci.sh > /tmp/certifsuite-ci.log 2>&1

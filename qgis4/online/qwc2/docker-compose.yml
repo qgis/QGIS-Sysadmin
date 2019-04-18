@@ -1,0 +1,29 @@
+version: '2'
+services:
+  qgis-master-parallel-rendering:
+    container_name: qgisserver-perfsuite-master-parallel-rendering
+    image: qgisserver-perfsuite/master
+    networks:
+      vpcbr:
+        ipv4_address: 172.21.0.10
+    volumes:
+      - ./data:/data
+    environment:
+      - QGIS_SERVER_PARALLEL_RENDERING=1
+      - QGIS_SERVER_MAX_THREADS=4
+      - QGIS_PROJECT_FILE=/data/qgs/postgres/qgis3.qgs
+  data:
+    container_name: qgisserver-perfsuite-data
+    image: qgisserver-perfsuite/data
+    networks:
+      vpcbr:
+        ipv4_address: 172.21.0.11
+    volumes:
+      - ./data:/data
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16
+          gateway: 172.21.0.1

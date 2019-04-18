@@ -1,0 +1,31 @@
+- name: Copy certification scripts
+  copy:
+    dest: "/home/{{ user }}/{{ prefix }}/online/certification/"
+    src: "{{ playbook_dir }}/../online/certification/"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+
+- name: Update crontab to periodically run online instances for certification process
+  cron:
+    name: certification
+    user: "{{ user }}"
+    minute: "0"
+    hour: "{{ certification_hour }}"
+    job: >
+      cd /home/{{ user }}/{{ prefix }}/online/certification/ && sh certification.sh > /tmp/certification.log 2>&1
+
+- name: Copy nginx configuration file
+  template:
+    dest: /etc/nginx/sites-available/certification
+    src: certification
+
+- name: Activate certification site
+  file:
+    src: /etc/nginx/sites-available/certification
+    dest: /etc/nginx/sites-enabled/certification
+    state: link
+
+- name: Restart nginx
+  service:
+    name: nginx
+    state: restarted
