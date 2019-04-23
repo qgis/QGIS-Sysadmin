@@ -8,6 +8,7 @@ dashboard_port: 8083
 clean_hour: "0"
 
 perfsuite_hour: "1"
+perfsuite_aggregate_hour: "6"
 perfsuite_online_hour: "6"
 perfsuite_port: "8082"
 

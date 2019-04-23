@@ -3,6 +3,13 @@
     name: ['postgresql-client', 'curl', 'virtualenv']
     update_cache: yes
 
+- name: Copy aggregate report scripts
+  copy:
+    dest: "/home/{{ user }}/{{ prefix }}/"
+    src: "{{ playbook_dir }}/../perfsuite-aggregate"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+
 - name: Clone QGIS-Server-PerfSuite
   git:
     repo: https://github.com/oslandia/QGIS-Server-PerfSuite
@@ -24,3 +31,12 @@
     hour: "{{ perfsuite_hour }}"
     job: >
       cd /home/{{ user }}/{{ prefix }} && sh perfsuite-ci.sh > /tmp/perfsuite-ci.log 2>&1
+
+- name: Update crontab to periodically build aggregate performance report
+  cron:
+    name: perfsuite aggregate report ci
+    user: "{{ user }}"
+    minute: "0"
+    hour: "{{ perfsuite_aggregate_hour }}"
+    job: >
+      cd /home/{{ user }}/{{ prefix }}/perfsuite-aggregate/ && sh aggregate-ci.sh > /tmp/perfsuite-aggregate-ci.log 2>&1
