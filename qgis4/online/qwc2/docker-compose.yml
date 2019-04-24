@@ -1,7 +1,7 @@
 version: '2'
 services:
   qgis-master-parallel-rendering:
-    container_name: qgisserver-perfsuite-master-parallel-rendering
+    container_name: qgisserver-demo
     image: qgisserver-perfsuite/master
     networks:
       vpcbr:
@@ -13,7 +13,7 @@ services:
       - QGIS_SERVER_MAX_THREADS=4
       - QGIS_PROJECT_FILE=/data/qgs/postgres/qgis3.qgs
   data:
-    container_name: qgisserver-perfsuite-data
+    container_name: data-demo
     image: qgisserver-perfsuite/data
     networks:
       vpcbr:
