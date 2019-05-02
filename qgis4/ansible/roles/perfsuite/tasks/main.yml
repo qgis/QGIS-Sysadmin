@@ -12,7 +12,7 @@
 
 - name: Clone QGIS-Server-PerfSuite
   git:
-    repo: https://github.com/oslandia/QGIS-Server-PerfSuite
+    repo: https://github.com/qgis/QGIS-Server-PerfSuite
     dest: "/home/{{ user }}/{{ prefix }}/QGIS-Server-PerfSuite"
   become_user: "{{ user }}"
 
