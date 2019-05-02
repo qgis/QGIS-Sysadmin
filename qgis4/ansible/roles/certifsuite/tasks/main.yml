@@ -5,7 +5,7 @@
 
 - name: Clone QGIS-Server-CertifSuite
   git:
-    repo: https://github.com/oslandia/QGIS-Server-CertifSuite
+    repo: https://github.com/qgis/QGIS-Server-CertifSuite
     dest: "/home/{{ user }}/{{ prefix }}/QGIS-Server-CertifSuite"
   become_user: "{{ user }}"
 
