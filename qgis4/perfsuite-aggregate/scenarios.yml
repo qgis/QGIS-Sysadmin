@@ -1,6 +1,7 @@
 OUTDIR: /tmp/graffiti_aggregate/
 HTML: aggregate.html
 TITLE: QGIS Server Performance Report Aggregate
+LOGO: qgis.png
 DATABASE: perfsuite.db
 DESCRIPTION: description.html
 PRECISION: 1
