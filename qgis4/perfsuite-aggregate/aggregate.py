@@ -10,7 +10,7 @@ cfg = Config('scenarios.yml')
 
 database = Database(cfg.database)
 
-report = Report(cfg.title, cfg.date)
+report = Report(cfg.title, cfg.date, cfg.logo)
 
 for i in trange(len(cfg.requests), desc='Requests'):
     req = Request.build(cfg.requests[i])
