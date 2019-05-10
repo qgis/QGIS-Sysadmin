@@ -41,6 +41,7 @@ then
       rm -f $WMS130/report.xml
       scp -r $WMS130 qgis-test:/var/www/qgisdata/QGIS-tests/ogc_cite/wms_130/$DATE
       scp -r $WMS130/* qgis-test:/var/www/qgisdata/QGIS-tests/ogc_cite/wms_130/latest/
+      cd QGIS-Server-CertifSuite/testsuite/wms-1.3.0/ && scp logo.png qgis-test:/var/www/qgisdata/QGIS-tests/ogc_cite/wms_130/$DATE/ && cd -
     fi
   fi
 else
@@ -65,6 +66,7 @@ then
     # check the Passed status
     scp -r $WFS110 qgis-test:/var/www/qgisdata/QGIS-tests/ogc_cite/wfs_110/$DATE
     scp -r $WFS110/* qgis-test:/var/www/qgisdata/QGIS-tests/ogc_cite/wfs_110/latest/
+    cd QGIS-Server-CertifSuite/testsuite/wfs-1.1.0/ && scp logo.png qgis-test:/var/www/qgisdata/QGIS-tests/ogc_cite/wms_130/$DATE/ && cd -
   fi
 else
   MAIL_BODY="No such directory '$WFS110'."
