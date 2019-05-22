@@ -21,7 +21,7 @@ $ cd ansible
 $ virtualenv -p /usr/bin/python2 venv
 $ source venv/bin/activate
 (venv)$ pip install -r requirements.txt
-(venv)$ sh qgis4.sh
+(venv)$ ./qgis4.sh
 ```
 
 ## URLs
