@@ -16,7 +16,7 @@
     recurse: True
 
 - name: Copy ci script
-  copy:
+  template:
     dest: "/home/{{ user }}/certifsuite-ci.sh"
     src: "certifsuite-ci.sh"
     owner: "{{ user }}"

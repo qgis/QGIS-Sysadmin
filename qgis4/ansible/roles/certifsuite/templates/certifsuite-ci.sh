@@ -3,12 +3,14 @@ WMS130=/tmp/certifsuite-wms130
 WFS110=/tmp/certifsuite-wfs110
 DATE=$(date +"%Y_%m_%d_%H_%M")
 
-MAIL_ADRESS="blottiere.paul@gmail.com"
+MAIL_ADDRESSES="{{ mail_addresses|join(' ') }}"
 MAIL_SUBJECT=""
 MAIL_BODY=""
 
 sendmail(){
-  echo "$MAIL_BODY" | mail -s "$MAIL_SUBJECT" $MAIL_ADRESS
+  for mail_address in $MAIL_ADDRESSES; do
+      echo "$MAIL_BODY" | mail -s "$MAIL_SUBJECT" $mail_address
+  done
 }
 
 echo "Remove docker images for master"
