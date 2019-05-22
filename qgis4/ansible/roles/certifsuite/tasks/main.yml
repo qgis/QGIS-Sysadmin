@@ -7,7 +7,13 @@
   git:
     repo: https://github.com/qgis/QGIS-Server-CertifSuite
     dest: "/home/{{ user }}/QGIS-Server-CertifSuite"
-  become_user: "{{ user }}"
+
+- name: Change owner and group of QGIS-Server-CertifSuite
+  file:
+    dest: "/home/{{ user }}/QGIS-Server-CertifSuite"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    recurse: True
 
 - name: Copy ci script
   copy:
