@@ -17,4 +17,4 @@ docker rmi qgisserver-certifsuite/master
 docker rmi debian:testing
 
 # remove static qwc2 file
-rm -rf /home/{{ user }}/{{ prefix }}/demos/qwc2/demos_qwc2
+rm -rf /home/{{ user }}/demos/qwc2/demos_qwc2

@@ -6,15 +6,15 @@
 - name: Clone QGIS-Server-CertifSuite
   git:
     repo: https://github.com/qgis/QGIS-Server-CertifSuite
-    dest: "/home/{{ user }}/{{ prefix }}/QGIS-Server-CertifSuite"
+    dest: "/home/{{ user }}/QGIS-Server-CertifSuite"
   become_user: "{{ user }}"
 
 - name: Copy ci script
   copy:
-    dest: "/home/{{ user }}/{{ prefix }}/certifsuite-ci.sh"
+    dest: "/home/{{ user }}/certifsuite-ci.sh"
     src: "certifsuite-ci.sh"
     owner: "{{ user }}"
-    group: "{{ group }}"
+    group: "{{ user }}"
 
 - name: Update crontab to periodically run ogc tests
   cron:
@@ -23,4 +23,4 @@
     minute: "0"
     hour: "{{ certifsuite_hour }}"
     job: >
-      cd /home/{{ user }}/{{ prefix }}/ && sh certifsuite-ci.sh > /tmp/certifsuite-ci.log 2>&1
+      cd /home/{{ user }} && sh certifsuite-ci.sh > /tmp/certifsuite-ci.log 2>&1

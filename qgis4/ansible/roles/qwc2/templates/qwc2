@@ -29,6 +29,6 @@ server {
 	}
 
 	location /qwc2_demo {
-		root /home/{{ user }}/{{ prefix }}/online/qwc2/;
+		root /home/{{ user }}/online/qwc2/;
         }
 }
