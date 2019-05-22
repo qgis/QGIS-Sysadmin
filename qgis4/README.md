@@ -18,7 +18,7 @@ To deploy this project on a remote server, you have to:
 
 ```
 $ cd ansible
-$ virtualenv -p /usr/bin/python2 venv
+$ virtualenv venv
 $ source venv/bin/activate
 (venv)$ pip install -r requirements.txt
 (venv)$ ./qgis4.sh
