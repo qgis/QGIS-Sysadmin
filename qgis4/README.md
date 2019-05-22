@@ -9,17 +9,19 @@ The [qgis4](http://qgis4.qgis.org/) server is dedicated to QGIS Server for:
 ## Deployment
 
 To deploy this project on a remote server, you have to:
+- have a Unix user `qgis-server-admin` on the `qgis4` host
 - configure your SSH to have a root connection without password (ssh key)
 - create an alias in your `~/.ssh/config` for the host `qgis4` (for
   the `root` user or a sudo user)
 - execute the Ansible playbook for the virtualenv (see below)
 
+
 ```
 $ cd ansible
-$ virtualenv -p /usr/bin/python2 venv
+$ virtualenv venv
 $ source venv/bin/activate
 (venv)$ pip install -r requirements.txt
-(venv)$ sh qgis4.sh username
+(venv)$ ./qgis4.sh
 ```
 
 ## URLs

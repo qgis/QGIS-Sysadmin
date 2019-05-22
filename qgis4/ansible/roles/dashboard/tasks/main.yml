@@ -1,9 +1,9 @@
 - name: Copy dashboard scripts
   copy:
-    dest: "/home/{{ user }}/{{ prefix }}/online/"
+    dest: "/home/{{ user }}/online/"
     src: "{{ playbook_dir }}/../online/dashboard"
     owner: "{{ user }}"
-    group: "{{ group }}"
+    group: "{{ user }}"
 
 - name: Copy nginx configuration file
   template:

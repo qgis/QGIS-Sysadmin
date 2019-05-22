@@ -1,10 +1,10 @@
 - name: Copy clean script
   template:
     src=clean.sh
-    dest="/home/{{ user }}/{{ prefix }}/"
+    dest="/home/{{ user }}/"
     mode=0644
     owner={{ user }}
-    group={{ group }}
+    group={{ user }}
 
 - name: Update crontab to periodically clean before performing ci scripts
   cron:
@@ -13,4 +13,4 @@
     minute: "0"
     hour: "{{ clean_hour }}"
     job: >
-      cd /home/{{ user }}/{{ prefix }}/ && sh clean.sh > /tmp/clean.log 2>&1
+      cd /home/{{ user }} && sh clean.sh > /tmp/clean.log 2>&1
