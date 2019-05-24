@@ -21,3 +21,19 @@
     groups: docker
     append: yes
     system: yes
+
+- name: Create .ssh directory for '{{ user }}'
+  file:
+    path: "/home/{{ user }}/.ssh"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: '0755'
+
+- name: Copy the SSH config for '{{ user }}'
+  copy:
+    src: ssh_config
+    dest: "/home/{{ user }}/.ssh/config"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: '0644'
