@@ -15,8 +15,9 @@
   apt:
     name: ['docker-ce', 'docker-compose']
 
-- name: Adding user '{{ user }}' to group docker
+- name: Create user '{{ user }}' and add it to group docker
   user:
     name: '{{ user }}'
     groups: docker
     append: yes
+    system: yes
