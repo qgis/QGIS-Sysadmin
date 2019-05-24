@@ -6,6 +6,16 @@ The [qgis4](http://qgis4.qgis.org/) server is dedicated to QGIS Server for:
 - Online instances for OGC certification process
 - Demonstration of QWC2 applications
 
+## Encrypted files
+
+Some files in this directory are encrypted using [git-crypt](https://github.com/AGWA/git-crypt).  To
+be able to read these files you have to have `git-crypt` installed, and you need to unlock the
+repository using the following command:
+
+```
+$ git-crypt unlock
+```
+
 ## Deployment
 
 To deploy this project on a remote server, you have to:
