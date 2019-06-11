@@ -1,0 +1,4 @@
+Host qgis-test
+Hostname 144.76.174.102
+User oslandia
+IdentityFile ~/.ssh/id_rsa_qgis_foundation

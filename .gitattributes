@@ -1,0 +1,1 @@
+qgis4/ansible/roles/base/files/id_rsa_qgis_foundation filter=git-crypt diff=git-crypt

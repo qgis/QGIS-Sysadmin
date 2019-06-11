@@ -15,8 +15,36 @@
   apt:
     name: ['docker-ce', 'docker-compose']
 
-- name: Adding user '{{ user }}' to group docker
+- name: Create user '{{ user }}' and add it to group docker
   user:
     name: '{{ user }}'
     groups: docker
     append: yes
+    system: yes
+
+- name: Create .ssh directory for '{{ user }}'
+  file:
+    path: "/home/{{ user }}/.ssh"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: '0755'
+
+- name: Copy the SSH config for '{{ user }}'
+  copy:
+    src: ssh_config
+    dest: "/home/{{ user }}/.ssh/config"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: '0644'
+
+- name: Copy the SSH keypair for '{{ user }}'
+  copy:
+    src: "{{ item.src }}"
+    dest: "/home/{{ user }}/.ssh/"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "{{ item.mode }}"
+  loop:
+  - { src: 'id_rsa_qgis_foundation.pub', mode: '0644' }
+  - { src: 'id_rsa_qgis_foundation', mode: '0600' }
