@@ -1,0 +1,146 @@
+HOSTS:
+    #
+    # 2.18
+    #
+    - NAME: "2.18"
+      COLOR: "#F77B71"
+      SHOW_DOTS: TRUE
+    - NAME: "2.18 (database)"
+      COLOR: "#F77B71"
+      SHOW_DOTS: FALSE
+      DASHARRAY: "6, 3"
+      WIDTH: 2
+    - NAME: "2.18 (1 core)"
+      COLOR: "#F77B71"
+    - NAME: "2.18 (1 core) (database)"
+      COLOR: "#F77B71"
+      SHOW_DOTS: FALSE
+      DASHARRAY: "6, 3"
+      WIDTH: 2
+    - NAME: "2.18 (default configuration)"
+      COLOR: "#F77B71"
+    - NAME: "2.18 (default configuration) (database)"
+      COLOR: "#F77B71"
+      SHOW_DOTS: FALSE
+      WIDTH: 2
+      DASHARRAY: "6, 3"
+    #
+    # 3.4
+    #
+    - NAME: "3.4"
+      COLOR: "#7884CB"
+    - NAME: "3.4 with trust"
+      COLOR: "#001FCC"
+    - NAME: "3.4 (database)"
+      COLOR: "#7884CB"
+      SHOW_DOTS: FALSE
+      WIDTH: 2
+      DASHARRAY: "6, 3"
+    - NAME: "3.4 (1 core)"
+      COLOR: "#7884CB"
+    - NAME: "3.4 (1 core) (database)"
+      COLOR: "#7884CB"
+      SHOW_DOTS: FALSE
+      WIDTH: 2
+      DASHARRAY: "6, 3"
+    - NAME: "3.4 (4 cores)"
+      COLOR: "#001FCC"
+    - NAME: "3.4 (4 cores) (database)"
+      COLOR: "#001FCC"
+      SHOW_DOTS: FALSE
+      WIDTH: 2
+      DASHARRAY: "6, 3"
+    - NAME: "3.4 (default configuration)"
+      COLOR: "#7884CB"
+    - NAME: "3.4 (default configuration) (database)"
+      COLOR: "#7884CB"
+      SHOW_DOTS: FALSE
+      WIDTH: 2
+      DASHARRAY: "6, 3"
+    - NAME: "3.4 (8 candidates)"
+      COLOR: "#001FCC"
+    - NAME: "3.4 (8 candidates) (database)"
+      COLOR: "#001FCC"
+      SHOW_DOTS: FALSE
+      WIDTH: 2
+      DASHARRAY: "6, 3"
+    #
+    # 3.6
+    #
+    - NAME: "3.6"
+      COLOR: "#4CB5AB"
+    - NAME: "3.6 with trust"
+      COLOR: "#5EE0D4"
+    - NAME: "3.6 (database)"
+      COLOR: "#4CB5AB"
+      SHOW_DOTS: FALSE
+      WIDTH: 2
+      DASHARRAY: "6, 3"
+    - NAME: "3.6 (1 core)"
+      COLOR: "#4CB5AB"
+    - NAME: "3.6 (1 core) (database)"
+      COLOR: "#4CB5AB"
+      SHOW_DOTS: FALSE
+      WIDTH: 2
+      DASHARRAY: "6, 3"
+    - NAME: "3.6 (4 cores)"
+      COLOR: "#5EE0D4"
+    - NAME: "3.6 (4 cores) (database)"
+      COLOR: "#5EE0D4"
+      SHOW_DOTS: FALSE
+      WIDTH: 2
+      DASHARRAY: "6, 3"
+    - NAME: "3.6 (default configuration)"
+      COLOR: "#4CB5AB"
+    - NAME: "3.6 (default configuration) (database)"
+      COLOR: "#4CB5AB"
+      SHOW_DOTS: FALSE
+      WIDTH: 2
+      DASHARRAY: "6, 3"
+    - NAME: "3.6 (8 candidates)"
+      COLOR: "#5EE0D4"
+    - NAME: "3.6 (8 candidates) (database)"
+      COLOR: "#5EE0D4"
+      SHOW_DOTS: FALSE
+      WIDTH: 2
+      DASHARRAY: "6, 3"
+    #
+    # Master
+    #
+    - NAME: "Master"
+      COLOR: "#FFD350"
+    - NAME: "Master with trust"
+      COLOR: "#FFA600"
+    - NAME: "Master (database)"
+      COLOR: "#FFD350"
+      SHOW_DOTS: FALSE
+      WIDTH: 2
+      DASHARRAY: "6, 3"
+    - NAME: "Master (1 core)"
+      COLOR: "#FFD350"
+    - NAME: "Master (1 core) (database)"
+      COLOR: "#FFD350"
+      SHOW_DOTS: FALSE
+      WIDTH: 2
+      DASHARRAY: "6, 3"
+    - NAME: "Master (4 cores)"
+      COLOR: "#FFA600"
+    - NAME: "Master (4 cores) (database)"
+      COLOR: "#FFA600"
+      SHOW_DOTS: FALSE
+      WIDTH: 2
+      DASHARRAY: "6, 3"
+    - NAME: "Master (default configuration)"
+      COLOR: "#FFD350"
+    - NAME: "Master (default configuration) (database)"
+      COLOR: "#FFD350"
+      SHOW_DOTS: FALSE
+      WIDTH: 2
+      DASHARRAY: "6, 3"
+    - NAME: "Master (8 candidates)"
+      COLOR: "#FFA600"
+    - NAME: "Master (8 candidates) (database)"
+      COLOR: "#FFA600"
+      SHOW_DOTS: FALSE
+      WIDTH: 2
+      DASHARRAY: "6, 3"
