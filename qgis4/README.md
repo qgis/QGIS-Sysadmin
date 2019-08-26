@@ -43,6 +43,9 @@ You can run the following playbook in a virtualbox via Vagrant, using the follow
 $ vagrant up
 ```
 
+The IP used by the vagrant box is configured onto `192.168.77.2`.
+
+
 ## URLs
 
 Links:
