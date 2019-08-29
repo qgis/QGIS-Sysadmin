@@ -1,0 +1,8 @@
+ms_perfs:
+  ms_perfs:
+    repo_url: https://github.com/camptocamp/ms_perfs.git
+    # which version (branch name, tag, SHA-1 ref ...) to clone
+    version: master
+  docker_osm:
+    repo_url: https://github.com/pvalsecc/docker-osm.git
+    version: develop

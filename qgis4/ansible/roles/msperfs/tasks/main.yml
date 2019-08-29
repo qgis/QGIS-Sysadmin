@@ -1,0 +1,59 @@
+- name: ensures python-docker is installed
+  apt:
+    name: python-docker
+    state: present
+
+- name: clone the ms_perfs repository
+  git:
+    repo: "{{ ms_perfs.ms_perfs.repo_url }}"
+    dest: "/home/{{ user }}/ms_perfs"
+    version: "{{ ms_perfs.ms_perfs.version }}"
+  register: ms_perfs_git
+
+- name: give the ms_perfs repository to {{ user }}
+  file:
+    path: "/home/{{ user }}/ms_perfs"
+    recurse: yes
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  when: ms_perfs_git.changed
+
+- name: clone the docker-osm repository
+  git:
+    repo: "{{ ms_perfs.docker_osm.repo_url }}"
+    dest: "/home/{{ user }}/docker-osm"
+    version: "{{ ms_perfs.docker_osm.version }}"
+  register: ms_perfs_docker_osm_git
+
+- name: give the docker-osm repository to {{ user }}
+  file:
+    path: "/home/{{ user }}/docker-osm"
+    recurse: yes
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  when: ms_perfs_docker_osm_git.changed
+
+- name: check if OSM data from switzerland have been downloaded
+  stat:
+    path: "/home/{{ user }}/docker-osm/settings/country.pbf"
+  register: switzerland_data
+
+- name: download OSM data from switzerland
+  command: /usr/bin/python pbf_downloader.py switzerland
+  args:
+    chdir: "/home/{{ user }}/docker-osm"
+  when: switzerland_data.stat.exists == false
+
+- name: give the data to {{ user }}
+  file:
+    path: "/home/{{ user }}/docker-osm"
+    recurse: yes
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  when: switzerland_data.stat.exists == false
+
+- name: Launch the docker composition
+  docker_service: # will be docker_compose in ansible >= 2.8
+    project_src: "/home/{{ user }}/docker-osm"
+    build: yes
+    pull: yes
