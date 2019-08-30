@@ -52,6 +52,9 @@
     group: "{{ user }}"
   when: switzerland_data.stat.exists == false
 
+# Note: unfortunately, this won't converge,
+# because we do need to launch the database container
+# to check if OSM datas have been loaded
 - name: Launch the docker composition from docker-osm
   docker_service: # will be docker_compose in ansible >= 2.8
     project_src: "/home/{{ user }}/ms_perfs/docker-osm"
@@ -64,23 +67,35 @@
     delay: 10
 
 - name: Verify if the OSM data have already been loaded
-  postgresql_schema:
+  postgresql_query:
+    db: gis
     login_host: localhost
-    port: 15432
-    name: import
-    database: gis
+    login_port: 15432
     login_user: docker
     login_password: docker
-    state: present
-  check_mode: yes
-  register: schema_in_osmdb
+    query: "SELECT pg_database_size('gis');"
+  register: query_in_osmdb
 
-- name: Wait for 5 minutes to get data sourced to postgresql
+- name: Wait for 10 minutes to get data sourced to postgresql
   pause:
-    minutes: 5
-  when: schema_in_osmdb.changed
+    minutes: 10
+  when: query_in_osmdb.query_result[0].pg_database_size < 10000000
 
 - name: Stopping the docker composition from docker-osm
   docker_service:
     project_src: "/home/{{ user }}/ms_perfs/docker-osm"
     stopped: true
+
+- name: Configure Nginx to serve the ms_perfs results
+  template:
+    src: msperfs_nginx.j2
+    dest: /etc/nginx/sites-available/msperfs
+    mode: 0644
+  notify: restart nginx
+
+- name: create symlink
+  file:
+    src: /etc/nginx/sites-available/msperfs
+    dest: /etc/nginx/sites-enabled/msperfs
+    state: link
+  notify: restart nginx
