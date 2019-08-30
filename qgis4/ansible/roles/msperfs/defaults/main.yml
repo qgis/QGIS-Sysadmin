@@ -4,5 +4,5 @@ ms_perfs:
     # which version (branch name, tag, SHA-1 ref ...) to clone
     version: master
   docker_osm:
-    repo_url: https://github.com/pvalsecc/docker-osm.git
-    version: develop
+    repo_url: https://github.com/pmauduit/docker-osm.git
+    version: create-extension-postgis
