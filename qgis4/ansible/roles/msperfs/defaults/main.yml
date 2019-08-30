@@ -2,7 +2,7 @@ ms_perfs:
   ms_perfs:
     repo_url: https://github.com/camptocamp/ms_perfs.git
     # which version (branch name, tag, SHA-1 ref ...) to clone
-    version: master
+    version: qgis-sysadmin-integration
   docker_osm:
     repo_url: https://github.com/pmauduit/docker-osm.git
     version: create-extension-postgis
