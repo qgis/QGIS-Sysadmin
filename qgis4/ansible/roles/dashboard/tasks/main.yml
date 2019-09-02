@@ -1,3 +1,7 @@
+- name: Import Nginx role
+  include_role:
+    name: nginx
+
 - name: Copy dashboard scripts
   copy:
     dest: "/home/{{ user }}/online/"
