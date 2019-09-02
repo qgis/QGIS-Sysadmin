@@ -1,7 +1,3 @@
-- name: Import Nginx role
-  include_role:
-    name: nginx
-
 - name: Copy demos scripts
   copy:
     dest: "/home/{{ user }}/online/"
