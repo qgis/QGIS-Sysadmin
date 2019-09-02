@@ -34,13 +34,29 @@ $ source venv/bin/activate
 (venv)$ ./qgis4.sh
 ```
 
-## Testing with vagrant
+## Testing with Vagrant
 
+For testing purposes it is possible to deploy to a Vagrant/VirtualBox virtual machine before
+deploying to the actual qgis4 server.
 
-You can run the following playbook in a virtualbox via Vagrant, using the following command:
+To boot and provision the virtual machine:
 
 ```
-$ vagrant up
+$ cd ansible
+$ source venv/bin/activate
+(venv)$ vagrant up
+```
+
+To run Ansible again for re-provisioning the virtual machine:
+
+```
+(venv)$ vagrant provision
+```
+
+To stop the virtual machine:
+
+```
+(venv)$ vagrant halt
 ```
 
 ## URLs
