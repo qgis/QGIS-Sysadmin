@@ -53,6 +53,12 @@ To run Ansible again for re-provisioning the virtual machine:
 (venv)$ vagrant provision
 ```
 
+To run a specific Ansible role (the `qwc2` role in this example):
+
+```
+(venv)$ ANSIBLE_ARGS="-t qwc2" vagrant provision
+```
+
 To stop the virtual machine:
 
 ```
