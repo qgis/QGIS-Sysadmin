@@ -18,14 +18,11 @@
   template:
     dest: /etc/nginx/sites-available/certification
     src: certification
+  notify: restart nginx
 
 - name: Activate certification site
   file:
     src: /etc/nginx/sites-available/certification
     dest: /etc/nginx/sites-enabled/certification
     state: link
-
-- name: Restart nginx
-  service:
-    name: nginx
-    state: restarted
+  notify: restart nginx
