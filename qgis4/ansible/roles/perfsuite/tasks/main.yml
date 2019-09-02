@@ -14,6 +14,7 @@
   git:
     repo: https://github.com/qgis/QGIS-Server-PerfSuite
     dest: "/home/{{ user }}/QGIS-Server-PerfSuite"
+  register: git_repo_perfsuite
 
 - name: Change owner and group of QGIS-Server-PerfSuite
   file:
@@ -21,6 +22,7 @@
     owner: "{{ user }}"
     group: "{{ user }}"
     recurse: True
+  when: git_repo_perfsuite.changed
 
 - name: Copy ci script
   copy:
