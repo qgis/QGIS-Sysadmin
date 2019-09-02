@@ -1,6 +1,10 @@
+- name: Include the NodeJS role
+  include_role:
+    name: geerlingguy.nodejs
+
 - name: Install prerequisites
   apt:
-    name: ['postgresql-client', 'curl', 'virtualenv']
+    name: ['postgresql-client', 'curl', 'virtualenv', 'libpq-dev', 'npm', 'libpython3.5-dev']
     update_cache: yes
 
 - name: Copy aggregate report scripts

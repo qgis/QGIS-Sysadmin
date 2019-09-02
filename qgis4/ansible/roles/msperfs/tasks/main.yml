@@ -55,8 +55,10 @@
 # Note: unfortunately, this won't converge,
 # because we do need to launch the database container
 # to check if OSM datas have been loaded
+# TODO: instead, use a file to "flag" if data have already been imported or not
+
 - name: Launch the docker composition from docker-osm
-  docker_service: # will be docker_compose in ansible >= 2.8
+  docker_compose:
     project_src: "/home/{{ user }}/ms_perfs/docker-osm"
     build: yes
     pull: yes
@@ -79,10 +81,10 @@
 - name: Wait for 10 minutes to get data sourced to postgresql
   pause:
     minutes: 10
-  when: query_in_osmdb.query_result[0].pg_database_size < 10000000
+  when: query_in_osmdb.query_result[0].pg_database_size < 13000000 # 13MB
 
 - name: Stopping the docker composition from docker-osm
-  docker_service:
+  docker_compose:
     project_src: "/home/{{ user }}/ms_perfs/docker-osm"
     stopped: true
 
