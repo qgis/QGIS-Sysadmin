@@ -1,6 +1,6 @@
 - name: Install prerequisites
   apt:
-    name: ['git', 'apt-transport-https', 'dirmngr', 'nginx']
+    name: ['git', 'apt-transport-https', 'dirmngr']
     update_cache: yes
 
 - name: Add Docker GPG key

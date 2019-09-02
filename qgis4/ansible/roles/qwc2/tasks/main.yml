@@ -18,14 +18,11 @@
   template:
     dest: /etc/nginx/sites-available/qwc2
     src: qwc2
+  notify: restart nginx
 
 - name: Activate demos site
   file:
     src: /etc/nginx/sites-available/qwc2
     dest: /etc/nginx/sites-enabled/qwc2
     state: link
-
-- name: Restart nginx
-  service:
-    name: nginx
-    state: restarted
+  notify: restart nginx
