@@ -64,12 +64,6 @@
     pull: yes
   when: not data_loaded.stat.exists
 
-- name: wait for the docker db container to be up
-  wait_for:
-    port: 15432
-    delay: 10
-  when: not data_loaded.stat.exists
-
 - name: Wait for 10 minutes to get data sourced to postgresql
   pause:
     minutes: 10
