@@ -94,3 +94,13 @@
     dest: /etc/nginx/sites-enabled/msperfs
     state: link
   notify: restart nginx
+
+- name: Update crontab to periodically run ms_perfs
+  cron:
+    name: msperfs
+    user: "{{ user }}"
+    minute: "0"
+    hour: "2"
+    weekday: "6"
+    job: >
+      cd /home/{{ user }}/ms_perfs/ && make pull && make run  > /tmp/msperfs.log 2>&1
