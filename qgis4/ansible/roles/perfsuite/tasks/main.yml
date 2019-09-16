@@ -1,6 +1,6 @@
 - name: Install prerequisites
   apt:
-    name: ['postgresql-client', 'curl', 'virtualenv', 'libpq-dev', 'npm', 'libpython3.5-dev']
+    name: ['postgresql-client', 'curl', 'virtualenv']
     update_cache: yes
 
 - name: Copy aggregate report scripts
