@@ -34,6 +34,7 @@ PASSWORD = '*******'
 # QGIS 3.6 = 11
 # QGIS 3.8 = 12
 # QGIS 3.10 = 13
+# QGIS 3.16 = 14
 
 def log(msg):
     with open('/tmp/githubhook.log', 'a') as f:
@@ -442,8 +443,8 @@ try:
                 issue_payload = {
                     'title': title,
                     'body': body,
-                    'milestone': 13,
-                    'labels': ['Automatic new feature']
+                    'milestone': 14,
+                    'labels': ['Automatic new feature', '3.12']
                 }
                 issue_payload = json.dumps(issue_payload)
                 r = requests.post(issues_url, data=issue_payload, auth=(USERNAME, PASSWORD))
