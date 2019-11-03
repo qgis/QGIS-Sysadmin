@@ -1,6 +1,7 @@
 #! /bin/sh
 WMS130=/tmp/certifsuite-wms130
 WFS110=/tmp/certifsuite-wfs110
+OGCAPIF=/tmp/certifsuite-ogcapif
 DATE=$(date +"%Y_%m_%d_%H_%M")
 
 MAIL_ADDRESSES="{{ mail_addresses|join(' ') }}"
@@ -72,5 +73,29 @@ then
   fi
 else
   MAIL_BODY="No such directory '$WFS110'."
+  sendmail
+fi
+
+echo "Run OGC tests for OGC API Features"
+echo "----------------------------------"
+MAIL_SUBJECT="[qgis4] QGIS Server CertifSuite OGC API Features failed"
+
+rm -rf $OGCAPIF
+cd QGIS-Server-CertifSuite/testsuite/ogcapif/ && sh run.sh && cd -
+if [ -d $OGCAPIF ]
+then
+  if [ ! -f $OGCAPIF/report.html ]
+  then
+    MAIL_BODY="No such file '$OGCAPIF/report.html'."
+    sendmail
+  else
+    # OGC API F tests are failing for now (it is known), so we don't
+    # check the Passed status
+    scp -r $OGCAPIF qgis-test:/var/www/qgisdata/QGIS-tests/ogc_cite/ogcapif/$DATE
+    scp -r $OGCAPIF/* qgis-test:/var/www/qgisdata/QGIS-tests/ogc_cite/ogcapif/latest/
+    cd QGIS-Server-CertifSuite/testsuite/ogcapif/ && scp logo.png qgis-test:/var/www/qgisdata/QGIS-tests/ogc_cite/ogcapif/$DATE/ && cd -
+  fi
+else
+  MAIL_BODY="No such directory '$OGCAPIF'."
   sendmail
 fi
