@@ -1,0 +1,28 @@
+- name: Copy demos scripts
+  copy:
+    dest: "/home/{{ user }}/online/"
+    src: "{{ playbook_dir }}/../online/ogcapif"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+- name: Update crontab to periodically run QGIS Server demo for OGCAPIF
+  cron:
+    name: ogcapif demo
+    user: "{{ user }}"
+    minute: "0"
+    hour: "{{ ogcapif_hour }}"
+    job: >
+      cd /home/{{ user }}/online/ogcapif/ && sh ogcapif.sh > /tmp/demos-ogcapif-ci.log 2>&1
+
+- name: Copy nginx configuration file
+  template:
+    dest: /etc/nginx/sites-available/ogcapif
+    src: ogcapif
+  notify: restart nginx
+
+- name: Activate demos site
+  file:
+    src: /etc/nginx/sites-available/ogcapif
+    dest: /etc/nginx/sites-enabled/ogcapif
+    state: link
+  notify: restart nginx

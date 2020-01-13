@@ -20,6 +20,9 @@ certification_hour: "6"
 qwc2_hour: "6"
 qwc2_port: "8081"
 
+ogcapif_hour: "6"
+ogcapif_port: "8084"
+
 user: "qgis-server-admin"
 
 mail_addresses:

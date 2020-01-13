@@ -12,6 +12,8 @@
     tags: perfsuite
   - role: qwc2
     tags: qwc2
+  - role: ogcapif
+    tags: ogcapif
   - role: certification
     tags: certification
   - role: clean
