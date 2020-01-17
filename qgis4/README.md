@@ -71,4 +71,5 @@ Links:
 - [QGIS Server 3.4 for OGC certification](http://qgis4.qgis.org:8080/certification_qgisserver_3_4?SERVICE=WMS&REQUEST=GetCapabilities)
 - [QGIS Server Master for OGC certification](http://qgis4.qgis.org:8080/certification_qgisserver_master?SERVICE=WMS&REQUEST=GetCapabilities)
 - [QWC2 demos](http://qgis4.qgis.org:8081/qwc2_demo/)
-- [QGIS Server demo](http://qgis4.qgis.org:8081/qgisserver_demo/)
+- [QGIS Server demo for QWC2](http://qgis4.qgis.org:8081/qgisserver_demo/)
+- [QGIS Server demo for OGCAPIF](http://138.201.120.72:8084/qgisserver_demo_wfs3/wfs3/)

@@ -1,0 +1,22 @@
+version: '2'
+services:
+  qgis-master-demo-ogcapif:
+    container_name: qgisserver-demo-ogcapif
+    image: qgisserver-perfsuite/master
+    networks:
+      vpcbr:
+        ipv4_address: 172.22.0.11
+    volumes:
+      - ./data:/data
+    privileged: true
+    environment:
+      - QGIS_SERVER_PARALLEL_RENDERING=1
+      - QGIS_SERVER_MAX_THREADS=4
+      - QGIS_PROJECT_FILE=/data/QGIS-Training-Data/exercise_data/qgis-server-tutorial-data/world3.qgs
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.22.0.0/16
+          gateway: 172.22.0.1
