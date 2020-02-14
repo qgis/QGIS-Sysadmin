@@ -14,6 +14,7 @@ fi
 
 # build 3.4 branch
 cd ../../QGIS-Server-CertifSuite/docker/3.4 && sh build.sh && cd -
+cd ../../QGIS-Server-CertifSuite/docker/3.10 && sh build.sh && cd -
 
 # stop and restart
 docker-compose down
