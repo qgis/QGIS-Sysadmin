@@ -10,6 +10,7 @@ services:
         ipv4_address: 172.20.0.4
     volumes:
       - ./data:/data
+    privileged: true
   qgis-3-10-teamengine:
     container_name: qgisserver-certifsuite-online-3-10
     image: qgisserver-certifsuite/3.10
@@ -20,6 +21,7 @@ services:
         ipv4_address: 172.20.0.6
     volumes:
       - ./data:/data
+    privileged: true
   qgis-3-4-teamengine:
     container_name: qgisserver-certisuite-online-3-4
     image: qgisserver-certifsuite/3.4
