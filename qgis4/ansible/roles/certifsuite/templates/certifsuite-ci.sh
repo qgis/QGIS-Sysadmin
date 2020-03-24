@@ -89,11 +89,16 @@ then
     MAIL_BODY="No such file '$OGCAPIF/report.html'."
     sendmail
   else
-    # OGC API F tests are failing for now (it is known), so we don't
-    # check the Passed status
-    scp -r $OGCAPIF qgis-test:/var/www/qgisdata/QGIS-tests/ogc_cite/ogcapif/$DATE
-    scp -r $OGCAPIF/* qgis-test:/var/www/qgisdata/QGIS-tests/ogc_cite/ogcapif/latest/
-    cd QGIS-Server-CertifSuite/testsuite/ogcapif/ && scp logo.png qgis-test:/var/www/qgisdata/QGIS-tests/ogc_cite/ogcapif/$DATE/ && cd -
+    cat $OGCAPIF/report.html | grep Overall -A 1 | grep Passed > /dev/null
+    if [ $? -eq 1 ]
+    then
+      MAIL_BODY="OGC tests are failing."
+      sendmail
+    else
+      scp -r $OGCAPIF qgis-test:/var/www/qgisdata/QGIS-tests/ogc_cite/ogcapif/$DATE
+      scp -r $OGCAPIF/* qgis-test:/var/www/qgisdata/QGIS-tests/ogc_cite/ogcapif/latest/
+      cd QGIS-Server-CertifSuite/testsuite/ogcapif/ && scp logo.png qgis-test:/var/www/qgisdata/QGIS-tests/ogc_cite/ogcapif/$DATE/ && cd -
+    fi
   fi
 else
   MAIL_BODY="No such directory '$OGCAPIF'."
