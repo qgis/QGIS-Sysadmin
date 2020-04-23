@@ -9,6 +9,7 @@ then
   wget $URL/data-wms-1.3.0.zip
   unzip data-wms-1.3.0.zip
   rm data-wms-1.3.0.zip
+  git clone https://github.com/qgis/QGIS-Training-Data
   cd -
 fi
 

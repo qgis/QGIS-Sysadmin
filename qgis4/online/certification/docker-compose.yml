@@ -22,6 +22,17 @@ services:
     volumes:
       - ./data:/data
     privileged: true
+  qgis-3-10-teamengine-ogcapif:
+    container_name: qgisserver-certifsuite-ogcapif-online-3-10
+    image: qgisserver-certifsuite/3.10
+    environment:
+      - QGIS_PROJECT_FILE=/data/QGIS-Training-Data/exercise_data/qgis-server-tutorial-data/world3.qgs
+    networks:
+      vpcbr:
+        ipv4_address: 172.20.0.7
+    volumes:
+      - ./data:/data
+    privileged: true
   qgis-3-4-teamengine:
     container_name: qgisserver-certisuite-online-3-4
     image: qgisserver-certifsuite/3.4
