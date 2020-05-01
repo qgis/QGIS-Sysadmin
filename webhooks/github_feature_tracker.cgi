@@ -444,7 +444,7 @@ try:
                     'title': title,
                     'body': body,
                     'milestone': 14,
-                    'labels': ['Automatic new feature', '3.12']
+                    'labels': ['Automatic new feature', '3.14']
                 }
                 issue_payload = json.dumps(issue_payload)
                 r = requests.post(issues_url, data=issue_payload, auth=(USERNAME, PASSWORD))
