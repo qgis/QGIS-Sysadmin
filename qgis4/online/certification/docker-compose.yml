@@ -33,17 +33,6 @@ services:
     volumes:
       - ./data:/data
     privileged: true
-  qgis-3-4-teamengine:
-    container_name: qgisserver-certisuite-online-3-4
-    image: qgisserver-certifsuite/3.4
-    environment:
-      - QGIS_PROJECT_FILE=/data/teamengine_wms_130.qgs
-    networks:
-      vpcbr:
-        ipv4_address: 172.20.0.5
-    volumes:
-      - ./data:/data
-    privileged: true
 networks:
   vpcbr:
     driver: bridge
