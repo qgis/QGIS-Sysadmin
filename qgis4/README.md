@@ -68,7 +68,6 @@ To stop the virtual machine:
 ## URLs
 
 Links:
-- [QGIS Server 3.4 for WMS 1.3.0 OGC certification](http://qgis4.qgis.org:8080/certification_qgisserver_3_4?SERVICE=WMS&REQUEST=GetCapabilities)
 - [QGIS Server 3.10 for WMS 1.3.0 OGC certification](http://qgis4.qgis.org:8080/certification_qgisserver_3_10?SERVICE=WMS&REQUEST=GetCapabilities)
 - [QGIS Server 3.10 for OGCAPIF certification](http://qgis4.qgis.org:8080/certification_ogcapif_qgisserver_3_10/wfs3/)
 - [QGIS Server Master for WMS 1.3.0 OGC certification](http://qgis4.qgis.org:8080/certification_qgisserver_master?SERVICE=WMS&REQUEST=GetCapabilities)
