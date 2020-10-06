@@ -7,8 +7,8 @@ docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 
 # remove docker images depending on debian testing
-docker rmi qgisserver-perfsuite/3.4
-docker rmi qgisserver-perfsuite/3.6
+docker rmi qgisserver-perfsuite/3.10
+docker rmi qgisserver-perfsuite/3.14
 docker rmi qgisserver-perfsuite/master
 
 docker rmi qgisserver-certifsuite/3.4
