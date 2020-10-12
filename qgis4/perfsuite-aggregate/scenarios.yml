@@ -1,7 +1,7 @@
 OUTDIR: /tmp/graffiti_aggregate/
 HTML: aggregate.html
 TITLE: QGIS Server Performance Report Aggregate
-LOGO: qgis.png
+THEME: qgis
 DATABASE: perfsuite.db
 DESCRIPTION: description.html
 PRECISION: 1
@@ -460,7 +460,7 @@ REQUESTS:
   - NAME: getmap_polygons_formats
     TYPE: GetMap
     TITLE: "Polygons and datasource influence"
-    DESCRIPTION: html/getmap_polygons_datasource.html
+    DESCRIPTION:
     LOG: True
     ITERATIONS: 20
     HOSTS:
@@ -507,7 +507,7 @@ REQUESTS:
   - NAME: getmap_lines_formats
     TYPE: GetMap
     TITLE: "Lines and datasource influence"
-    DESCRIPTION: html/getmap_lines_datasource.html
+    DESCRIPTION:
     LOG: True
     ITERATIONS: 20
     HOSTS:
@@ -554,7 +554,7 @@ REQUESTS:
   - NAME: getmap_points_formats
     TYPE: GetMap
     TITLE: "Points and datasource influence"
-    DESCRIPTION: html/getmap_points_datasource.html
+    DESCRIPTION:
     LOG: True
     ITERATIONS: 20
     HOSTS:
