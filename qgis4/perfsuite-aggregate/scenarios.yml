@@ -457,3 +457,144 @@ REQUESTS:
         PAYLOAD_LAYERS: Raster
         PAYLOAD_FORMAT: png
         PAYLOAD_BBOX: 43.3,1.0,43.9,1.9
+  - NAME: getmap_polygons_formats
+    TYPE: GetMap
+    TITLE: "Polygons and datasource influence"
+    DESCRIPTION: html/getmap_polygons_datasource.html
+    LOG: True
+    ITERATIONS: 20
+    HOSTS:
+      - NAME: "PostGIS"
+        HOST: http://localhost:8088/qgisserver_master
+        PAYLOAD_MAP: /data/qgs/all/qgis3.qgs
+        PAYLOAD_VERSION: 1.3.0
+        PAYLOAD_WIDTH: 400
+        PAYLOAD_HEIGHT: 400
+        PAYLOAD_SRS: "EPSG:4326"
+        PAYLOAD_LAYERS: parcelles_postgis
+        PAYLOAD_FORMAT: png
+        PAYLOAD_BBOX: 43.27,3.77,44.70,8.29
+      - NAME: "Spatialite"
+        HOST: http://localhost:8088/qgisserver_master
+        PAYLOAD_MAP: /data/qgs/all/qgis3.qgs
+        PAYLOAD_VERSION: 1.3.0
+        PAYLOAD_WIDTH: 400
+        PAYLOAD_HEIGHT: 400
+        PAYLOAD_SRS: "EPSG:4326"
+        PAYLOAD_LAYERS: parcelles_spatialite
+        PAYLOAD_FORMAT: png
+        PAYLOAD_BBOX: 43.27,3.77,44.70,8.29
+      - NAME: "Shapefile"
+        HOST: http://localhost:8088/qgisserver_master
+        PAYLOAD_MAP: /data/qgs/all/qgis3.qgs
+        PAYLOAD_VERSION: 1.3.0
+        PAYLOAD_WIDTH: 400
+        PAYLOAD_HEIGHT: 400
+        PAYLOAD_SRS: "EPSG:4326"
+        PAYLOAD_LAYERS: parcelles_shp
+        PAYLOAD_FORMAT: png
+        PAYLOAD_BBOX: 43.27,3.77,44.70,8.29
+      - NAME: "Geopackage"
+        HOST: http://localhost:8088/qgisserver_master
+        PAYLOAD_MAP: /data/qgs/all/qgis3.qgs
+        PAYLOAD_VERSION: 1.3.0
+        PAYLOAD_WIDTH: 400
+        PAYLOAD_HEIGHT: 400
+        PAYLOAD_SRS: "EPSG:4326"
+        PAYLOAD_LAYERS: parcelles_gpkg
+        PAYLOAD_FORMAT: png
+        PAYLOAD_BBOX: 43.27,3.77,44.70,8.29
+  - NAME: getmap_lines_formats
+    TYPE: GetMap
+    TITLE: "Lines and datasource influence"
+    DESCRIPTION: html/getmap_lines_datasource.html
+    LOG: True
+    ITERATIONS: 20
+    HOSTS:
+      - NAME: "PostGIS"
+        HOST: http://localhost:8088/qgisserver_master
+        PAYLOAD_MAP: /data/qgs/all/qgis3.qgs
+        PAYLOAD_VERSION: 1.3.0
+        PAYLOAD_WIDTH: 400
+        PAYLOAD_HEIGHT: 400
+        PAYLOAD_SRS: "EPSG:4326"
+        PAYLOAD_LAYERS: hydro_cours_eau.geoml93_postgis
+        PAYLOAD_FORMAT: png
+        PAYLOAD_BBOX: 40.95,-7.10872,51.3797,12.2081
+      - NAME: "Spatialite"
+        HOST: http://localhost:8088/qgisserver_master
+        PAYLOAD_MAP: /data/qgs/all/qgis3.qgs
+        PAYLOAD_VERSION: 1.3.0
+        PAYLOAD_WIDTH: 400
+        PAYLOAD_HEIGHT: 400
+        PAYLOAD_SRS: "EPSG:4326"
+        PAYLOAD_LAYERS: hydro_cours_eau_geoml93_spatialite
+        PAYLOAD_FORMAT: png
+        PAYLOAD_BBOX: 40.95,-7.10872,51.3797,12.2081
+      - NAME: "Shapefile"
+        HOST: http://localhost:8088/qgisserver_master
+        PAYLOAD_MAP: /data/qgs/all/qgis3.qgs
+        PAYLOAD_VERSION: 1.3.0
+        PAYLOAD_WIDTH: 400
+        PAYLOAD_HEIGHT: 400
+        PAYLOAD_SRS: "EPSG:4326"
+        PAYLOAD_LAYERS: hydro_cours_eau_geoml93_shp
+        PAYLOAD_FORMAT: png
+        PAYLOAD_BBOX: 40.95,-7.10872,51.3797,12.2081
+      - NAME: "Geopackage"
+        HOST: http://localhost:8088/qgisserver_master
+        PAYLOAD_MAP: /data/qgs/all/qgis3.qgs
+        PAYLOAD_VERSION: 1.3.0
+        PAYLOAD_WIDTH: 400
+        PAYLOAD_HEIGHT: 400
+        PAYLOAD_SRS: "EPSG:4326"
+        PAYLOAD_LAYERS: hydro_cours_eau_geoml93_gpkg
+        PAYLOAD_FORMAT: png
+        PAYLOAD_BBOX: 40.95,-7.10872,51.3797,12.2081
+  - NAME: getmap_points_formats
+    TYPE: GetMap
+    TITLE: "Points and datasource influence"
+    DESCRIPTION: html/getmap_points_datasource.html
+    LOG: True
+    ITERATIONS: 20
+    HOSTS:
+      - NAME: "PostGIS"
+        HOST: http://localhost:8088/qgisserver_master
+        PAYLOAD_MAP: /data/qgs/all/qgis3.qgs
+        PAYLOAD_VERSION: 1.3.0
+        PAYLOAD_WIDTH: 400
+        PAYLOAD_HEIGHT: 400
+        PAYLOAD_SRS: "EPSG:4326"
+        PAYLOAD_LAYERS: adress_ban_postgis
+        PAYLOAD_FORMAT: png
+        PAYLOAD_BBOX: 43.1567,0.685072,43.9446,2.06422
+      - NAME: "Spatialite"
+        HOST: http://localhost:8088/qgisserver_master
+        PAYLOAD_MAP: /data/qgs/all/qgis3.qgs
+        PAYLOAD_VERSION: 1.3.0
+        PAYLOAD_WIDTH: 400
+        PAYLOAD_HEIGHT: 400
+        PAYLOAD_SRS: "EPSG:4326"
+        PAYLOAD_LAYERS: adress_ban_spatialite
+        PAYLOAD_FORMAT: png
+        PAYLOAD_BBOX: 43.1567,0.685072,43.9446,2.06422
+      - NAME: "Shapefile"
+        HOST: http://localhost:8088/qgisserver_master
+        PAYLOAD_MAP: /data/qgs/all/qgis3.qgs
+        PAYLOAD_VERSION: 1.3.0
+        PAYLOAD_WIDTH: 400
+        PAYLOAD_HEIGHT: 400
+        PAYLOAD_SRS: "EPSG:4326"
+        PAYLOAD_LAYERS: adress_ban_shp
+        PAYLOAD_FORMAT: png
+        PAYLOAD_BBOX: 43.1567,0.685072,43.9446,2.06422
+      - NAME: "Geopackage"
+        HOST: http://localhost:8088/qgisserver_master
+        PAYLOAD_MAP: /data/qgs/all/qgis3.qgs
+        PAYLOAD_VERSION: 1.3.0
+        PAYLOAD_WIDTH: 400
+        PAYLOAD_HEIGHT: 400
+        PAYLOAD_SRS: "EPSG:4326"
+        PAYLOAD_LAYERS: adress_ban_gpkg
+        PAYLOAD_FORMAT: png
+        PAYLOAD_BBOX: 43.1567,0.685072,43.9446,2.06422
