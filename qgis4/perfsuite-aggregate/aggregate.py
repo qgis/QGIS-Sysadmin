@@ -12,7 +12,7 @@ cfg = Config('scenarios.yml', 'style.yml')
 
 database = Database(cfg.database)
 style = Style(cfg.styles)
-report = Report(cfg.title, cfg.date, cfg.logo)
+report = Report(cfg.title, cfg.date, cfg.logo, cfg.css)
 
 for i in trange(len(cfg.requests), desc='Requests'):
     req = Request.build(cfg.requests[i])
