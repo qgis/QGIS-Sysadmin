@@ -25,7 +25,7 @@
   when: git_repo_perfsuite.changed
 
 - name: Copy ci script
-  copy:
+  template:
     dest: "/home/{{ user }}/perfsuite-ci.sh"
     src: "perfsuite-ci.sh"
     owner: "{{ user }}"
