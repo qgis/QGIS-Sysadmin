@@ -39,3 +39,15 @@ else
   MAIL_BODY="No such directory '$GRAFFITI'."
   sendmail
 fi
+
+echo "Regressions analysis"
+echo "--------------------"
+if [ -d $GRAFFITI ]
+then
+  cd QGIS-Server-PerfSuite/scenarios && . graffiti/venv/bin/activate && python regressions.py
+  if [ $? -eq 1 ]
+  then
+    MAIL_BODY="Regressions have been detected."
+    sendmail
+  fi
+fi
