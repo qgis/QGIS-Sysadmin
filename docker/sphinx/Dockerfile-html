@@ -8,7 +8,7 @@ MAINTAINER Richard Duivenvoorde <richard@duif.net>
 #ADD 71-apt-cacher-ng /etc/apt/apt.conf.d/71-apt-cacher-ng
 
 RUN apt-get update
-RUN apt-get install -y python3 python3-pip curl apt-utils gettext rpl
+RUN apt-get install -y python3 python3-pip curl apt-utils gettext rpl zip
 RUN curl -o /REQUIREMENTS.txt https://raw.githubusercontent.com/qgis/QGIS-Website/master/REQUIREMENTS.txt
 RUN pip3 install -r /REQUIREMENTS.txt
 RUN apt-get install -y rsync
