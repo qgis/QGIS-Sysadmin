@@ -28,13 +28,9 @@ PASSWORD = '*******'
 
 # to get the right number for the milestones:
 # https://api.github.com/repos/qgis/QGIS-Documentation/milestones
-# QGIS 3.0 = 7
-# QGIS 3.2 = 9
-# QGIS 3.4 = 10
-# QGIS 3.6 = 11
-# QGIS 3.8 = 12
 # QGIS 3.10 = 13
 # QGIS 3.16 = 14
+# QGIS 3.22 = 15
 
 def log(msg):
     with open('/tmp/githubhook.log', 'a') as f:
@@ -443,8 +439,8 @@ try:
                 issue_payload = {
                     'title': title,
                     'body': body,
-                    'milestone': 14,
-                    'labels': ['Automatic new feature', '3.14']
+                    'milestone': 15,
+                    'labels': ['Automatic new feature', '3.18']
                 }
                 issue_payload = json.dumps(issue_payload)
                 r = requests.post(issues_url, data=issue_payload, auth=(USERNAME, PASSWORD))
