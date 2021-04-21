@@ -20,3 +20,6 @@
     tags: clean
   - role: dashboard
     tags: dashboard
+  - role: msperfs
+    tags: msperfs
+
