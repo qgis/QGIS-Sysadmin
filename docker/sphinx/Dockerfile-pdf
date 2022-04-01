@@ -15,10 +15,10 @@ RUN apt-get -y -q install texlive-xetex  texlive-fonts-recommended texinfo texli
 RUN apt-get -y -q install cmap-adobe-japan1 cmap-adobe-japan2 latex-cjk-all nkf okumura-clsfiles texlive-binaries texlive-fonts-extra texlive-lang-japanese
 
 # Install Korean packages
-RUN apt-get -y -q install ko.tex-base ko.tex-extra fonts-nanum fonts-nanum-extra fonts-nanum-coding fonts-nanum-eco fonts-nanum-extra fonts-unfonts-core
+RUN apt-get -y -q install texlive-lang-korean fonts-nanum fonts-nanum-extra fonts-nanum-coding fonts-nanum-eco fonts-nanum-extra fonts-unfonts-core
 
 # Install Hindi packages
-RUN apt-get -y -q install texlive-lang-indic fonts-lohit-deva fonts-deva-extra fonts-nakula fonts-sahadeva fonts-samyak-deva
+RUN apt-get -y -q install texlive-lang-other fonts-lohit-deva fonts-deva-extra fonts-nakula fonts-sahadeva fonts-samyak-deva
 
 
 
