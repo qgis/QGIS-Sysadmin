@@ -11,9 +11,9 @@ services:
     volumes:
       - ./data:/data
     privileged: true
-  qgis-3-10-teamengine:
-    container_name: qgisserver-certifsuite-online-3-10
-    image: qgisserver-certifsuite/3.10
+  qgis-3-28-teamengine:
+    container_name: qgisserver-certifsuite-online-3-28
+    image: qgisserver-certifsuite/3.28
     environment:
       - QGIS_PROJECT_FILE=/data/teamengine_wms_130.qgs
     networks:
@@ -22,11 +22,11 @@ services:
     volumes:
       - ./data:/data
     privileged: true
-  qgis-3-10-teamengine-ogcapif:
-    container_name: qgisserver-certifsuite-ogcapif-online-3-10
-    image: qgisserver-certifsuite/3.10
+  qgis-3-28-teamengine-ogcapif:
+    container_name: qgisserver-certifsuite-ogcapif-online-3-28
+    image: qgisserver-certifsuite/3.28
     environment:
-      - QGIS_PROJECT_FILE=/data/QGIS-Training-Data/exercise_data/qgis-server-tutorial-data/world3.qgs
+      - QGIS_PROJECT_FILE=/data/QGIS-Training-Data/exercise_data/qgis-server-tutorial-data/world.qgs
     networks:
       vpcbr:
         ipv4_address: 172.20.0.7

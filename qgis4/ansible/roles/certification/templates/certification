@@ -31,7 +31,7 @@ server {
 		sub_filter 'http://nginx/wms13/' 'http://{{ server_ip }}/';
 	}
 
-	location /certification_qgisserver_3_10 {
+	location /certification_qgisserver_3_28 {
 	        fastcgi_pass 172.20.0.6:5555;
 	        add_header Access-Control-Allow-Origin *;
 	        add_header 'Access-Control-Allow-Headers' 'Authorization,Content-Type,8Accept,Origin,X-Requested-With';
@@ -50,7 +50,7 @@ server {
 		sub_filter 'http://nginx/wms13/' 'http://{{ server_ip }}/';
 	}
 
-	location /certification_ogcapif_qgisserver_3_10 {
+	location /certification_ogcapif_qgisserver_3_28 {
 	        fastcgi_pass 172.20.0.7:5555;
 	        add_header Access-Control-Allow-Origin *;
 	        add_header 'Access-Control-Allow-Headers' 'Authorization,Content-Type,8Accept,Origin,X-Requested-With';
