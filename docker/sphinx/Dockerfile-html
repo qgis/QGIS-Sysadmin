@@ -11,3 +11,6 @@ RUN apt-get update
 RUN apt-get install -y python3 python3-pip curl apt-utils gettext rpl zip git rsync
 RUN curl -o /REQUIREMENTS.txt https://raw.githubusercontent.com/qgis/QGIS-Website/master/REQUIREMENTS.txt
 RUN pip3 install -r /REQUIREMENTS.txt
+# install the tx cli in / but copy it to /bin to be sure it can be called
+RUN curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash
+RUN cp /tx /bin
