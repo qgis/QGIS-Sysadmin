@@ -1,6 +1,6 @@
 FROM qgis/sphinx_html_3
 
-MAINTAINER Richard Duivenvoorde <richard@duif.net>
+LABEL org.opencontainers.image.authors="richard@duif.net"
 
 # Use local cached debs from host (saves your bandwidth!)
 # Change ip below to that of your apt-cacher-ng host
@@ -11,11 +11,13 @@ MAINTAINER Richard Duivenvoorde <richard@duif.net>
 # for russian pdf you need package 'texinfo texlive-lang-cyrillic' installed
 # for japanese pdf you need: 'cmap-adobe-japan1 cmap-adobe-japan2 latex-cjk-all nkf okumura-clsfiles ptex-base ptex-bin texlive-fonts-extra'
 RUN apt-get update
-RUN apt-get -y -q install texlive-xetex  texlive-fonts-recommended texinfo texlive-lang-cyrillic 
-RUN apt-get -y -q install cmap-adobe-japan1 cmap-adobe-japan2 latex-cjk-all nkf okumura-clsfiles texlive-binaries texlive-fonts-extra texlive-lang-japanese
+RUN apt-get -y -q install texlive-xetex  texlive-fonts-recommended texinfo texlive-lang-cyrillic fonts-freefont-ttf fonts-freefont-otf
 
+# 20260810 RD: these tex packages are gone or renamed, please help to make Japanese and Korean pdf builds work again...
+# Install Japanese packages
+#RUN apt-get -y -q install cmap-adobe-japan1 cmap-adobe-japan2 latex-cjk-all nkf okumura-clsfiles texlive-binaries texlive-fonts-extra texlive-lang-japanese
 # Install Korean packages
-RUN apt-get -y -q install texlive-lang-korean fonts-nanum fonts-nanum-extra fonts-nanum-coding fonts-nanum-eco fonts-nanum-extra fonts-unfonts-core
+#RUN apt-get -y -q install texlive-lang-korean fonts-nanum fonts-nanum-extra fonts-nanum-coding fonts-nanum-eco fonts-nanum-extra fonts-unfonts-core
 
 # Install Hindi packages
 RUN apt-get -y -q install texlive-lang-other fonts-lohit-deva fonts-deva-extra fonts-nakula fonts-sahadeva fonts-samyak-deva
